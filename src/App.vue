@@ -1,62 +1,70 @@
-<script setup lang="ts">
-import { NConfigProvider, darkTheme } from 'naive-ui'
-import type { WatermarkProps } from 'naive-ui'
-import { useAppStore } from './store/modules/app'
-import { useThemeStore } from './store/modules/theme'
-import { naiveDateLocales, naiveLocales } from './locales/naive'
-import { getEnvVariable } from '@/utils/env'
-import GlobalBuildDesc from '@/layouts/modules/global-build-desc/index.vue'
+<!--
+=========================================================
+* Vue Argon Dashboard 2 - v4.0.0
+=========================================================
 
-defineOptions({
-  name: 'App',
-})
+* Product Page: https://creative-tim.com/product/vue-argon-dashboard
+* Copyright 2024 Creative Tim (https://www.creative-tim.com)
 
-const appStore = useAppStore()
-const themeStore = useThemeStore()
+Coded by www.creative-tim.com
 
-const naiveDarkTheme = computed(() => (themeStore.darkMode ? darkTheme : undefined))
+=========================================================
 
-const naiveLocale = computed(() => {
-  return naiveLocales[appStore.locale]
-})
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+import Sidenav from "./examples/Sidenav";
+import Configurator from "@/examples/Configurator.vue";
+import Navbar from "@/examples/Navbars/Navbar.vue";
+import AppFooter from "@/examples/Footer.vue";
 
-const naiveDateLocale = computed(() => {
-  return naiveDateLocales[appStore.locale]
-})
+const store = useStore();
+const isNavFixed = computed(() => store.state.isNavFixed);
+const darkMode = computed(() => store.state.darkMode);
+const isAbsolute = computed(() => store.state.isAbsolute);
+const showSidenav = computed(() => store.state.showSidenav);
+const layout = computed(() => store.state.layout);
+const showNavbar = computed(() => store.state.showNavbar);
+const showFooter = computed(() => store.state.showFooter);
+const showConfig = computed(() => store.state.showConfig);
+const hideConfigButton = computed(() => store.state.hideConfigButton);
+const toggleConfigurator = () => store.commit("toggleConfigurator");
 
-const watermarkProps = computed<WatermarkProps>(() => {
+const navClasses = computed(() => {
   return {
-    content: themeStore.watermark?.text || 'VueNaiveAdmin',
-    cross: true,
-    fullscreen: true,
-    fontSize: 16,
-    lineHeight: 16,
-    width: 384,
-    height: 384,
-    xOffset: 12,
-    yOffset: 60,
-    rotate: -15,
-    zIndex: 9999,
-  }
-})
-
-const buildDesc = computed(() => `${getEnvVariable('VITE_BUILD_PREFIX')}${BUILD_DESC}`)
+    "position-sticky bg-white left-auto top-2 z-index-sticky":
+      isNavFixed.value && !darkMode.value,
+    "position-sticky bg-default left-auto top-2 z-index-sticky":
+      isNavFixed.value && darkMode.value,
+    "position-absolute px-4 mx-0 w-100 z-index-2": isAbsolute.value,
+    "px-0 mx-4": !isAbsolute.value,
+  };
+});
 </script>
-
 <template>
-  <NConfigProvider
-    :theme="naiveDarkTheme"
-    :theme-overrides="themeStore.naiveTheme"
-    :locale="naiveLocale"
-    :date-locale="naiveDateLocale"
-    class="h-full"
-  >
-    <AppProvider>
-      <RouterView class="bg-layout" />
-      <NWatermark v-if="themeStore.watermark?.visible" v-bind="watermarkProps" />
-      <GlobalBuildDesc v-if="Boolean(buildDesc)" :data="buildDesc" />
-    </AppProvider>
-  </NConfigProvider>
-</template>
+  <div
+    v-show="layout === 'landing'"
+    class="landing-bg h-100 bg-gradient-primary position-fixed w-100"
+  ></div>
 
-<style scoped></style>
+  <sidenav v-if="showSidenav" />
+
+  <main
+    class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
+  >
+    <!-- nav -->
+
+    <navbar :class="[navClasses]" v-if="showNavbar" />
+
+    <router-view />
+
+    <app-footer v-show="showFooter" />
+
+    <configurator
+      :toggle="toggleConfigurator"
+      :class="[showConfig ? 'show' : '', hideConfigButton ? 'd-none' : '']"
+    />
+  </main>
+</template>
