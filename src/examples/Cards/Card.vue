@@ -4,23 +4,23 @@
       <div class="d-flex" :class="directionReverse ? reverseDirection : ''">
         <div>
           <div class="text-center icon icon-shape"
-           :class="`${iconBackground} ${this.$store.state.isRTL ? 'border-radius-md' : 'border-radius-2xl'}`">
+            :class="`${iconBackground} ${store.isRTL ? 'border-radius-md' : 'border-radius-2xl'}`">
             <i class="text-lg opacity-10" :class="iconClass" aria-hidden="true"></i>
           </div>
         </div>
         <div :class="contentClass">
-          <div class="numbers" v-if="this.$store.state.isRTL">
+          <div class="numbers" v-if="store.isRTL">
             <p class="mb-0 text-sm text-uppercase font-weight-bold" :class="titleColor">{{ title }}</p>
             <h5 class="font-weight-bolder" :class="valueColor">{{ value }}
-            <span class="text-sm"  :class="percentageColor">{{ percentage }}</span> 
-            <span class="font-weight-light text-sm"> {{detail}}</span>
+              <span class="text-sm" :class="percentageColor">{{ percentage }}</span>
+              <span class="font-weight-light text-sm"> {{ detail }}</span>
             </h5>
           </div>
           <div class="numbers" v-else>
             <p class="mb-0 text-sm text-uppercase font-weight-bold" :class="titleColor">{{ title }}</p>
             <h5 class="font-weight-bolder" :class="valueColor">{{ value }}</h5>
-            <span class="text-sm"  :class="percentageColor">{{ percentage }}</span> 
-            {{detail}}
+            <span class="text-sm" :class="percentageColor">{{ percentage }}</span>
+            {{ detail }}
           </div>
         </div>
       </div>
@@ -29,7 +29,13 @@
 </template>
 
 <script>
+import { useThemeStore } from "@/store";
+
 export default {
+  setup() {
+    const store = useThemeStore();
+    return { store };
+  },
   name: "card",
   data() {
     return {

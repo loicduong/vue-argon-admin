@@ -1,10 +1,10 @@
 <script setup>
 import { computed } from "vue";
-import { useStore } from "vuex";
+import { useThemeStore } from "@/store";
 
-const store = useStore();
-const isRTL = computed(() => store.state.isRTL);
-const sidebarMinimize = () => store.commit("sidebarMinimize");
+const store = useThemeStore();
+const isRTL = computed(() => store.isRTL);
+const sidebarMinimize = () => store.sidebarMinimize();
 
 const minimizeSidebar = () => {
   if (window.innerWidth < 1200) {
@@ -25,13 +25,11 @@ defineProps({
 </script>
 <template>
   <router-link :to="to" class="nav-link" @click="minimizeSidebar">
-    <div
-      class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center"
-    >
+    <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
       <slot name="icon"></slot>
     </div>
     <span class="nav-link-text" :class="isRTL ? ' me-1' : 'ms-1'">{{
       navText
-    }}</span>
+      }}</span>
   </router-link>
 </template>

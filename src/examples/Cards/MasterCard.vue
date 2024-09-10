@@ -1,11 +1,11 @@
 <script setup>
 import { computed } from "vue";
-import { useStore } from "vuex";
+import { useThemeStore } from "@/store";
 import ArgonAvatar from "@/components/ArgonAvatar.vue";
 import img1 from "../../assets/img/logos/mastercard.png";
 
-const store = useStore();
-const isRTL = computed(() => store.state.isRTL);
+const store = useThemeStore();
+const isRTL = computed(() => store.isRTL);
 defineProps({
   card: {
     type: Object,
@@ -28,12 +28,9 @@ defineProps({
 </script>
 <template>
   <div class="card bg-transparent shadow-xl">
-    <div
-      class="overflow-hidden position-relative border-radius-xl"
-      :style="{
-        backgroundImage: 'url(' + require('@/assets/img/card-visa.jpg') + ')',
-      }"
-    >
+    <div class="overflow-hidden position-relative border-radius-xl" :style="{
+      backgroundImage: 'url(' + require('@/assets/img/card-visa.jpg') + ')',
+    }">
       <span class="mask" :class="`bg-gradient-${card.background}`"></span>
       <div class="card-body position-relative z-index-1 p-3">
         <i class="fas fa-wifi text-white p-2" aria-hidden="true"></i>
@@ -55,10 +52,7 @@ defineProps({
               <h6 class="text-white mb-0">{{ card.expiryDate }}</h6>
             </div>
           </div>
-          <div
-            class="w-20 d-flex align-items-end justify-content-end"
-            :class="isRTL ? 'me-auto' : 'ms-auto'"
-          >
+          <div class="w-20 d-flex align-items-end justify-content-end" :class="isRTL ? 'me-auto' : 'ms-auto'">
             <argon-avatar class="w-60 mt-2" :image="img1" alt="logo" />
           </div>
         </div>
