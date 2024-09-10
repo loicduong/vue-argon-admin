@@ -1,28 +1,25 @@
-<script setup>
-defineProps({
-  size: {
-    type: String,
-    default: 'md',
-  },
-  color: {
-    type: String,
-    default: 'success',
-  },
-  variant: {
-    type: String,
-    default: 'fill',
-  },
-  circular: {
-    type: Boolean,
-    default: false,
-  },
-  floating: {
-    type: Boolean,
-    default: false,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonBadge',
 })
 
-function getClasses(variant, color, size, circular, floating) {
+interface Props {
+  size?: string
+  color?: string
+  variant?: string
+  circular?: boolean
+  floating?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  size: 'md',
+  color: 'success',
+  variant: 'fill',
+  circular: false,
+  floating: false,
+})
+
+function getClasses(variant?: Props['variant'], color?: Props['color'], size?: Props['size'], circular?: Props['circular'], floating?: Props['floating']) {
   let colorValue, sizeValue, circleValue, floatingValue
 
   if (variant === 'gradient') {
@@ -43,10 +40,7 @@ function getClasses(variant, color, size, circular, floating) {
 </script>
 
 <template>
-  <span
-    class="badge"
-    :class="getClasses(variant, color, size, circular, floating)"
-  >
+  <span class="badge" :class="getClasses(variant, color, size, circular, floating)">
     <slot />
   </span>
 </template>

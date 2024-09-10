@@ -1,27 +1,25 @@
-<script setup>
-defineProps({
-  label: {
-    type: String,
-    default: '',
-  },
-  active: {
-    type: Boolean,
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  prev: {
-    type: Boolean,
-    default: false,
-  },
-  next: {
-    type: Boolean,
-    default: false,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonPaginationItem',
 })
-function getClasses(active, disabled) {
+
+interface Props {
+  label?: string
+  active?: boolean
+  disabled?: boolean
+  prev?: boolean
+  next?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  label: '',
+  active: false,
+  disabled: false,
+  prev: false,
+  next: false,
+})
+
+function getClasses(active?: Props['active'], disabled?: Props['disabled']) {
   let activeValue, disabledValue
 
   activeValue = active ? 'active' : null

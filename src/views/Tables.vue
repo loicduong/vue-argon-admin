@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import AuthorsTable from './components/AuthorsTable.vue'
 import ProjectsTable from './components/ProjectsTable.vue'
 </script>

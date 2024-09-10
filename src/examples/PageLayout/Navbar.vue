@@ -1,18 +1,20 @@
-<script setup>
-defineProps({
-  btnBackground: {
-    type: String,
-    default: '',
-  },
-  isBlur: {
-    type: String,
-    default: '',
-  },
-  darkMode: {
-    type: Boolean,
-    default: false,
-  },
-  isBtn: { type: String, default: 'bg-gradient-light' },
+<script setup lang="ts">
+defineOptions({
+  name: 'Navbar',
+})
+
+interface Props {
+  btnBackground?: string
+  isBlur?: string
+  darkMode?: boolean
+  isBtn?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  btnBackground: '',
+  isBlur: '',
+  darkMode: false,
+  isBtn: 'bg-gradient-light',
 })
 </script>
 
@@ -63,11 +65,7 @@ defineProps({
           </li>
           <li class="nav-item">
             <RouterLink class="nav-link me-2" to="/profile">
-              <i
-                class="fa fa-user opacity-6 me-1"
-                aria-hidden="true"
-                :class="isBlur ? 'text-dark' : 'text-white'"
-              />
+              <i class="fa fa-user opacity-6 me-1" aria-hidden="true" :class="isBlur ? 'text-dark' : 'text-white'" />
               Profile
             </RouterLink>
           </li>
@@ -83,11 +81,7 @@ defineProps({
           </li>
           <li class="nav-item">
             <RouterLink class="nav-link me-2" to="/signin">
-              <i
-                class="fas fa-key opacity-6 me-1"
-                aria-hidden="true"
-                :class="isBlur ? 'text-dark' : 'text-white'"
-              />
+              <i class="fas fa-key opacity-6 me-1" aria-hidden="true" :class="isBlur ? 'text-dark' : 'text-white'" />
               Sign In
             </RouterLink>
           </li>

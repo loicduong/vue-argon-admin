@@ -1,63 +1,41 @@
-<script lang="ts">
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
 
-export default {
+defineOptions({
   name: 'CategoriesCard',
-  props: {
-    cardTitle: {
-      type: String,
-      default: 'Categories',
-    },
-    title: {
-      type: String,
-      default: 'Devices',
-    },
-    title2: {
-      type: String,
-      default: 'Tickets',
-    },
-    title3: {
-      type: String,
-      default: 'Error logs',
-    },
-    title4: {
-      type: String,
-      default: 'Happy Users',
-    },
-    titleDesc: {
-      type: String,
-      default: '250 in stock',
-    },
-    titleDesc2: {
-      type: String,
-      default: '346+ sold',
-    },
-    title2Desc: {
-      type: String,
-      default: '123 closed',
-    },
-    title4Desc: {
-      type: String,
-      default: '+ 430',
-    },
-    title2Desc2: {
-      type: String,
-      default: '15 open',
-    },
-    title3Desc: {
-      type: String,
-      default: '1 is active',
-    },
-    title3Desc2: {
-      type: String,
-      default: '40 closed',
-    },
-  },
-  setup() {
-    const store = useThemeStore()
-    return { store }
-  },
+})
+
+interface Props {
+  cardTitle?: string
+  title?: string
+  title2?: string
+  title3?: string
+  title4?: string
+  titleDesc?: string
+  titleDesc2?: string
+  title2Desc?: string
+  title2Desc2?: string
+  title3Desc?: string
+  title3Desc2?: string
+  title4Desc?: string
 }
+
+withDefaults(defineProps<Props>(), {
+  cardTitle: 'Categories',
+  title: 'Devices',
+  title2: 'Tickets',
+  title3: 'Error logs',
+  title4: 'Happy Users',
+  titleDesc: '250 in stock',
+  titleDesc2: '346+ sold',
+  title2Desc: '123 closed',
+  title2Desc2: '15 open',
+  title3Desc: '1 is active',
+  title3Desc2: '40 closed',
+  title4Desc: '+ 430',
+})
+
+const store = useThemeStore()
 </script>
 
 <template>

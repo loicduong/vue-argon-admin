@@ -1,5 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import ArgonButton from '@/components/ArgonButton.vue'
+
+defineOptions({
+  name: 'TransactionCard',
+})
 </script>
 
 <template>
@@ -22,9 +26,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
         Newest
       </h6>
       <ul class="list-group">
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex align-items-center">
             <ArgonButton
               color="danger"
@@ -41,15 +43,11 @@ import ArgonButton from '@/components/ArgonButton.vue'
               <span class="text-xs">27 March 2020, at 12:30 PM</span>
             </div>
           </div>
-          <div
-            class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold"
-          >
+          <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
             - $ 2,500
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex align-items-center">
             <ArgonButton
               color="success"
@@ -66,9 +64,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
               <span class="text-xs">27 March 2020, at 04:30 AM</span>
             </div>
           </div>
-          <div
-            class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold"
-          >
+          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
             + $ 2,000
           </div>
         </li>
@@ -77,9 +73,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
         Yesterday
       </h6>
       <ul class="list-group">
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex align-items-center">
             <ArgonButton
               color="success"
@@ -96,15 +90,11 @@ import ArgonButton from '@/components/ArgonButton.vue'
               <span class="text-xs">26 March 2020, at 13:45 PM</span>
             </div>
           </div>
-          <div
-            class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold"
-          >
+          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
             + $ 750
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex align-items-center">
             <ArgonButton
               color="success"
@@ -121,15 +111,11 @@ import ArgonButton from '@/components/ArgonButton.vue'
               <span class="text-xs">26 March 2020, at 12:30 PM</span>
             </div>
           </div>
-          <div
-            class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold"
-          >
+          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
             + $ 1,000
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex align-items-center">
             <ArgonButton
               color="success"
@@ -146,15 +132,11 @@ import ArgonButton from '@/components/ArgonButton.vue'
               <span class="text-xs">26 March 2020, at 08:30 AM</span>
             </div>
           </div>
-          <div
-            class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold"
-          >
+          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
             + $ 2,500
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex align-items-center">
             <ArgonButton
               color="dark"
@@ -171,9 +153,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
               <span class="text-xs">26 March 2020, at 05:00 AM</span>
             </div>
           </div>
-          <div
-            class="d-flex align-items-center text-dark text-sm font-weight-bold"
-          >
+          <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
             Pending
           </div>
         </li>

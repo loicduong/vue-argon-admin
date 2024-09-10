@@ -1,5 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import ArgonButton from '@/components/ArgonButton.vue'
+
+defineOptions({
+  name: 'InvoiceCard',
+})
 </script>
 
 <template>
@@ -12,11 +16,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
           </h6>
         </div>
         <div class="col-6 text-end">
-          <ArgonButton
-            color="success"
-            size="sm"
-            variant="outline"
-          >
+          <ArgonButton color="success" size="sm" variant="outline">
             View All
           </ArgonButton>
         </div>
@@ -24,9 +24,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
     </div>
     <div class="card-body p-3 pb-0 mb-0">
       <ul class="list-group">
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex flex-column">
             <h6 class="mb-1 text-dark font-weight-bold text-sm">
               March, 01, 2020
@@ -41,9 +39,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
             </button>
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex flex-column">
             <h6 class="text-dark mb-1 font-weight-bold text-sm">
               February, 10, 2021
@@ -58,9 +54,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
             </button>
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex flex-column">
             <h6 class="text-dark mb-1 font-weight-bold text-sm">
               April, 05, 2020
@@ -75,9 +69,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
             </button>
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
           <div class="d-flex flex-column">
             <h6 class="text-dark mb-1 font-weight-bold text-sm">
               June, 25, 2019
@@ -92,9 +84,7 @@ import ArgonButton from '@/components/ArgonButton.vue'
             </button>
           </div>
         </li>
-        <li
-          class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg"
-        >
+        <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
           <div class="d-flex flex-column">
             <h6 class="text-dark mb-1 font-weight-bold text-sm">
               March, 01, 2019

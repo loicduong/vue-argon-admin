@@ -1,8 +1,17 @@
-<script>
-export default {
+<script setup lang="ts">
+defineOptions({
   name: 'SwitchCard',
-  props: ['state', 'stateText', 'stateDescription', 'isChecked', 'classCustom'],
+})
+
+interface Props {
+  state?: string
+  stateText?: string
+  stateDescription?: string
+  isChecked?: boolean
+  classCustom?: string
 }
+
+defineProps<Props>()
 </script>
 
 <template>
@@ -13,12 +22,7 @@ export default {
           {{ state }}
         </p>
         <div class="form-check form-switch ms-auto">
-          <input
-            id="flexSwitchCheckHumidity"
-            class="form-check-input"
-            type="checkbox"
-            :checked="isChecked"
-          >
+          <input id="flexSwitchCheckHumidity" class="form-check-input" type="checkbox" :checked="isChecked">
         </div>
       </div>
       <slot name="icon" />

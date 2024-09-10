@@ -1,7 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { activateDarkMode, deactivateDarkMode } from '@/assets/js/dark-mode'
 import { useThemeStore } from '@/store'
 import { computed } from 'vue'
+
+defineOptions({
+  name: 'Configurator',
+})
 
 const store = useThemeStore()
 

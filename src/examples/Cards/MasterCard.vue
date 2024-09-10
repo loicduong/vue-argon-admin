@@ -1,30 +1,39 @@
-<script setup>
+<script setup lang="ts">
 import ArgonAvatar from '@/components/ArgonAvatar.vue'
 import { useThemeStore } from '@/store'
 import { computed } from 'vue'
 import img1 from '../../assets/img/logos/mastercard.png'
 
-const store = useThemeStore()
-const isRTL = computed(() => store.isRTL)
-defineProps({
-  card: {
-    type: Object,
-    number: String,
-    holderName: String,
-    expiryDate: String,
-    holderText: String,
-    expiryText: String,
-    background: String,
-    default: () => ({
-      number: '4562 1122 4594 7852',
-      holderName: 'Jack Peterson',
-      expiryDate: '11/22',
-      holderText: 'Card Holder',
-      expiryText: 'Expires',
-      background: 'dark',
-    }),
-  },
+defineOptions({
+  name: 'MasterCard',
 })
+
+interface Props {
+  card?: {
+    type?: Record<string, unknown>
+    number: string
+    holderName: string
+    expiryDate: string
+    holderText: string
+    expiryText: string
+    background: string
+  }
+}
+
+withDefaults(defineProps<Props>(), {
+  card: () => ({
+    number: '4562 1122 4594 7852',
+    holderName: 'Jack Peterson',
+    expiryDate: '11/22',
+    holderText: 'Card Holder',
+    expiryText: 'Expires',
+    background: 'dark',
+  }),
+})
+
+const store = useThemeStore()
+
+const isRTL = computed(() => store.isRTL)
 
 const backgroundImage = computed(() => new URL('@/assets/img/card-visa.jpg', import.meta.url).href)
 </script>

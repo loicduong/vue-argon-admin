@@ -1,31 +1,30 @@
-<script setup>
-defineProps({
-  title: {
-    type: String,
-    default: '',
-  },
-  description: {
-    type: String,
-    default: '',
-  },
-  headings: {
-    type: Array,
-    default: () => [],
-  },
-  rows: {
-    type: Array,
-    logo: String,
-    tool: String,
-    teamMembers: Array,
-    price: String,
-    progress: Number,
-    default: () => [],
-  },
-  action: {
-    type: Array,
-    route: String,
-    label: String,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ProjectCard',
+})
+
+interface Props {
+  title?: string
+  description?: string
+  headings?: string[]
+  rows?: {
+    logo: string
+    tool: string
+    teamMembers: string[]
+    price: string
+    progress: number
+  }[]
+  action?: {
+    route: string
+    label: string
+  }[]
+}
+
+withDefaults(defineProps<Props>(), {
+  title: '',
+  description: '',
+  headings: () => [],
+  rows: () => [],
 })
 </script>
 
@@ -39,19 +38,10 @@ defineProps({
         </div>
         <div v-if="action" class="col-lg-6 col-5 my-auto text-end">
           <div class="dropdown float-lg-start pe-4">
-            <a
-              :id="title"
-              class="cursor-pointer"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+            <a :id="title" class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-ellipsis-v text-secondary" aria-hidden="true" />
             </a>
-            <ul
-              class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5 text-end"
-              :aria-labelledby="title"
-              style
-            >
+            <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5 text-end" :aria-labelledby="title">
               <li v-for="{ route, label } in action" :key="label">
                 <a class="dropdown-item border-radius-md" :href="route">{{
                   label
@@ -77,10 +67,7 @@ defineProps({
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="{ logo, tool, teamMembers, price, progress } in rows"
-              :key="tool"
-            >
+            <tr v-for="{ logo, tool, teamMembers, price, progress } in rows" :key="tool">
               <td>
                 <div class="d-flex py-1">
                   <div>
@@ -102,7 +89,6 @@ defineProps({
                     class="avatar avatar-xs rounded-circle"
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
-                    title
                     data-bs-original-title="Ryan Tompson"
                   >
                     <img :src="image" alt="team1">

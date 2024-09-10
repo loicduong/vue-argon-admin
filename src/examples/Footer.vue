@@ -1,5 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
+
+defineOptions({
+  name: 'Footer',
+})
 
 const store = useThemeStore()
 </script>

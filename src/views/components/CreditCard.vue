@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineOptions({
+  name: 'CreditCard',
+})
+</script>
+
 <template>
   <div class="card bg-gradient-dark">
     <div class="card-body">

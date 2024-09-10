@@ -1,50 +1,25 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
-const showMenu = ref(false)
-defineProps({
-  img: {
-    type: [String, Object],
-    url: String,
-    overlay: String,
-    default: () => ({
-      overlay: 'dark',
-    }),
-  },
-  icon: {
-    type: [String, Object],
-    required: true,
-    component: {
-      type: String,
-    },
-    background: {
-      type: String,
-    },
-    default: () => ({
-      background: 'bg-white',
-    }),
-  },
-  count: {
-    type: Object,
-    default: null,
-    number: {
-      type: Number,
-    },
-    label: {
-      type: String,
-    },
-  },
-  percentage: {
-    type: [String, Object],
-    default: '',
-    label: {
-      type: String,
-    },
-    color: {
-      type: String,
-    },
-  },
+defineOptions({
+  name: 'ComplexStatisticsCard',
 })
+
+interface Props {
+  img?: string | { url?: string, overlay: string }
+  icon?: string | { component?: string, background: string }
+  count?: { number: number, label: string } | null
+  percentage?: string | { label: string, color: string }
+}
+
+withDefaults(defineProps<Props>(), {
+  img: () => ({ overlay: 'dark' }),
+  icon: () => ({ background: 'bg-white' }),
+  count: null,
+  percentage: '',
+})
+
+const showMenu = ref(false)
 </script>
 
 <template>
@@ -55,8 +30,7 @@ defineProps({
   >
     <div class="colored-shadow" />
     <span
-      :class="`mask bg-gradient-${
-        typeof img === 'object' ? img.overlay : 'dark'
+      :class="`mask bg-gradient-${typeof img === 'object' ? img.overlay : 'dark'
       }`"
     />
     <div class="card-body p-3 position-relative">
@@ -73,9 +47,9 @@ defineProps({
             />
           </div>
           <h5 class="text-white font-weight-bolder mb-0 mt-3">
-            {{ count.number }}
+            {{ count?.number }}
           </h5>
-          <span class="text-white text-sm">{{ count.label }}</span>
+          <span class="text-white text-sm">{{ count?.label }}</span>
         </div>
         <div class="col-4">
           <div class="dropdown text-end mb-6">
@@ -90,34 +64,21 @@ defineProps({
             >
               <i class="fa fa-ellipsis-h text-white" aria-hidden="true" />
             </a>
-            <ul
-              class="dropdown-menu px-2 py-3"
-              aria-labelledby="dropdownUsers1"
-              :class="{ show: showMenu }"
-            >
+            <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1" :class="{ show: showMenu }">
               <li>
-                <a
-                  class="dropdown-item border-radius-md"
-                  href="javascript:;"
-                >Action</a>
+                <a class="dropdown-item border-radius-md" href="javascript:;">Action</a>
               </li>
               <li>
-                <a
-                  class="dropdown-item border-radius-md"
-                  href="javascript:;"
-                >Another action</a>
+                <a class="dropdown-item border-radius-md" href="javascript:;">Another action</a>
               </li>
               <li>
-                <a
-                  class="dropdown-item border-radius-md"
-                  href="javascript:;"
-                >Something else here</a>
+                <a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a>
               </li>
             </ul>
           </div>
           <p
             class="text-sm text-end font-weight-bolder mt-auto mb-0"
-            :class="percentage.color ? percentage.color : 'text-white'"
+            :class="typeof percentage === 'object' && percentage?.color ? percentage?.color : 'text-white'"
           >
             {{
               typeof percentage === "string"

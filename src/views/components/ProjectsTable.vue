@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineOptions({
+  name: 'ProjectsTable',
+})
+</script>
+
 <template>
   <div class="card mb-4">
     <div class="card-header pb-0">
@@ -8,24 +14,16 @@
         <table class="table align-items-center justify-content-center mb-0">
           <thead>
             <tr>
-              <th
-                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-              >
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                 Project
               </th>
-              <th
-                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-              >
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                 Budget
               </th>
-              <th
-                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-              >
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                 Status
               </th>
-              <th
-                class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2"
-              >
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">
                 Completion
               </th>
               <th />
@@ -123,11 +121,7 @@
                 </div>
               </td>
               <td class="align-middle">
-                <button
-                  class="btn btn-link text-secondary mb-0"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
@@ -175,11 +169,7 @@
                 </div>
               </td>
               <td class="align-middle">
-                <button
-                  class="btn btn-link text-secondary mb-0"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
@@ -227,11 +217,7 @@
                 </div>
               </td>
               <td class="align-middle">
-                <button
-                  class="btn btn-link text-secondary mb-0"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
@@ -279,11 +265,7 @@
                 </div>
               </td>
               <td class="align-middle">
-                <button
-                  class="btn btn-link text-secondary mb-0"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
@@ -331,11 +313,7 @@
                 </div>
               </td>
               <td class="align-middle">
-                <button
-                  class="btn btn-link text-secondary mb-0"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>

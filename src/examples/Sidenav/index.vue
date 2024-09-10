@@ -1,9 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import logoWhite from '@/assets/img/logo-ct.png'
 import logo from '@/assets/img/logo-ct-dark.png'
 import { useThemeStore } from '@/store'
 import { computed } from 'vue'
 import SidenavList from './SidenavList.vue'
+
+defineOptions({
+  name: 'Sidenav',
+})
 
 const store = useThemeStore()
 const isRTL = computed(() => store.isRTL)

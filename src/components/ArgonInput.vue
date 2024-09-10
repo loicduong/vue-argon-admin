@@ -1,54 +1,39 @@
-<script setup>
-const emit = defineEmits(['update:modelValue'])
-
-defineProps({
-  size: {
-    type: String,
-    default: 'default',
-  },
-  success: {
-    type: Boolean,
-    default: false,
-  },
-  error: {
-    type: Boolean,
-    default: false,
-  },
-  icon: {
-    type: String,
-    default: '',
-  },
-  iconDir: {
-    type: String,
-    default: '',
-  },
-  name: {
-    type: String,
-    default: '',
-  },
-  id: {
-    type: String,
-    default: '',
-  },
-  modelValue: {
-    type: String,
-    default: '',
-  },
-  placeholder: {
-    type: String,
-    default: '',
-  },
-  type: {
-    type: String,
-    default: 'text',
-  },
-  isRequired: {
-    type: Boolean,
-    default: false,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonInput',
 })
 
-function getClasses(size, success, error) {
+interface Props {
+  size?: string
+  success?: boolean
+  error?: boolean
+  icon?: string
+  iconDir?: string
+  name?: string
+  id?: string
+  modelValue?: string
+  placeholder?: string
+  type?: string
+  isRequired?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  size: 'default',
+  success: false,
+  error: false,
+  icon: '',
+  iconDir: '',
+  name: '',
+  id: '',
+  modelValue: '',
+  placeholder: '',
+  type: 'text',
+  isRequired: false,
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+function getClasses(size?: Props['size'], success?: Props['success'], error?: Props['error']) {
   let sizeValue, isValidValue
 
   sizeValue = size ? `form-control-${size}` : null
@@ -65,8 +50,8 @@ function getClasses(size, success, error) {
 
   return `${sizeValue} ${isValidValue}`
 }
-const getIcon = icon => (icon || null)
-const hasIcon = icon => (icon ? 'input-group' : null)
+const getIcon = (icon?: Props['icon']) => (icon || null)
+const hasIcon = (icon?: Props['icon']) => (icon ? 'input-group' : null)
 </script>
 
 <template>
@@ -84,7 +69,7 @@ const hasIcon = icon => (icon ? 'input-group' : null)
         :value="modelValue"
         :placeholder="placeholder"
         :isRequired="isRequired"
-        @input="emit('update:modelValue', $event.target.value)"
+        @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       >
       <span v-if="iconDir === 'right'" class="input-group-text">
         <i :class="getIcon(icon)" />

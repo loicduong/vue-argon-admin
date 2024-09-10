@@ -1,10 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import SidenavCard from './SidenavCard.vue'
 import SidenavItem from './SidenavItem.vue'
+
+defineOptions({
+  name: 'SidenavList',
+})
 
 const store = useThemeStore()
 const isRTL = computed(() => store.isRTL)

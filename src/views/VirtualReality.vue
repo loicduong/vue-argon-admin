@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import setTooltip from '@/assets/js/tooltip.js'
 import AppFooter from '@/examples/Footer.vue'
 import Navbar from '@/examples/Navbars/Navbar.vue'
@@ -39,8 +39,8 @@ onBeforeUnmount(() => {
 
   if (store.isPinned === false) {
     const sidenav_show = document.querySelector('.g-sidenav-show')
-    sidenav_show.classList.remove('g-sidenav-hidden')
-    sidenav_show.classList.add('g-sidenav-pinned')
+    sidenav_show?.classList?.remove('g-sidenav-hidden')
+    sidenav_show?.classList?.add('g-sidenav-pinned')
     store.isPinned = true
   }
   store.isTransparent = 'bg-transparent'

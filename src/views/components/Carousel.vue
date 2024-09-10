@@ -1,5 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+
+defineOptions({
+  name: 'Carousel',
+})
 
 const backgroundImage1 = computed(() => new URL('@/assets/img/carousel-1.jpg', import.meta.url).href)
 const backgroundImage2 = computed(() => new URL('@/assets/img/carousel-2.jpg', import.meta.url).href)

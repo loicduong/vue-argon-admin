@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import DefaultInfoCard from '@/examples/Cards/DefaultInfoCard.vue'
 import MasterCard from '@/examples/Cards/MasterCard.vue'
 import BillingCard from './components/BillingCard.vue'

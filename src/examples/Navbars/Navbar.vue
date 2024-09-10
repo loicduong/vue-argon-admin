@@ -1,8 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import Breadcrumbs from '../Breadcrumbs.vue'
+
+defineOptions({
+  name: 'Navbar',
+})
 
 const showMenu = ref(false)
 const store = useThemeStore()

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import setNavPills from '@/assets/js/nav-pills.js'
 import setTooltip from '@/assets/js/tooltip.js'
 

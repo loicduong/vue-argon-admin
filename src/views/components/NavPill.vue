@@ -1,6 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import setNavPills from '@/assets/js/nav-pills.js'
 import { onMounted } from 'vue'
+
+defineOptions({
+  name: 'NavPill',
+})
 
 onMounted(() => {
   setNavPills()
@@ -20,13 +24,7 @@ onMounted(() => {
         >Messages</a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link mb-0 px-0 py-1"
-          data-bs-toggle="tab"
-          href="#"
-          role="tab"
-          aria-selected="false"
-        >Social</a>
+        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#" role="tab" aria-selected="false">Social</a>
       </li>
       <li class="nav-item">
         <a
@@ -38,13 +36,7 @@ onMounted(() => {
         >Notifications</a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link mb-0 px-0 py-1"
-          data-bs-toggle="tab"
-          href="#"
-          role="tab"
-          aria-selected="false"
-        >Backup</a>
+        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#" role="tab" aria-selected="false">Backup</a>
       </li>
     </ul>
   </div>

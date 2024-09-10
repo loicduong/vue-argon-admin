@@ -1,20 +1,16 @@
-<script setup>
-defineProps({
-  color: {
-    type: String,
-    default: 'success',
-  },
-  variant: {
-    type: String,
-    default: 'fill',
-  },
-  percentage: {
-    type: Number,
-    required: true,
-  },
+<script setup lang="ts">
+interface Props {
+  color?: string
+  variant?: string
+  percentage: number
+}
+
+withDefaults(defineProps<Props>(), {
+  color: 'success',
+  variant: 'fill',
 })
 
-function getClasses(color, variant) {
+function getClasses(color?: Props['color'], variant?: Props['variant']) {
   let colorValue
 
   if (variant === 'gradient') {
@@ -30,10 +26,6 @@ function getClasses(color, variant) {
 
 <template>
   <div class="progress">
-    <div
-      class="progress-bar"
-      :class="getClasses(color, variant)"
-      :style="{ width: `${percentage}%` }"
-    />
+    <div class="progress-bar" :class="getClasses(color, variant)" :style="{ width: `${percentage}%` }" />
   </div>
 </template>

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import BR from '@/assets/img/icons/flags/BR.png'
 import DE from '@/assets/img/icons/flags/DE.png'
 import GB from '@/assets/img/icons/flags/GB.png'

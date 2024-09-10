@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineOptions({
+  name: 'CardToDo',
+})
+</script>
+
 <template>
   <div class="card bg-gradient-dark move-on-hover">
     <div class="card-body">

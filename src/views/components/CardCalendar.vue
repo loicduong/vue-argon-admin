@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineOptions({
+  name: 'CardCalendar',
+})
+</script>
+
 <template>
   <div class="overflow-hidden card move-on-hover">
     <div class="card-body">

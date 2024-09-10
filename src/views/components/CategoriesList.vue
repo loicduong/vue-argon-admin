@@ -1,26 +1,29 @@
-<script setup>
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
 import { computed } from 'vue'
 
+defineOptions({
+  name: 'CategoriesList',
+})
+
+interface Props {
+  title?: string
+  categories: {
+    icon: {
+      component: string
+      background: string
+    }
+    label: string
+    description: string
+  }[]
+}
+
+withDefaults(defineProps<Props>(), {
+  title: 'Categories',
+})
+
 const store = useThemeStore()
 const isRTL = computed(() => store.isRTL)
-
-defineProps({
-  title: {
-    type: String,
-    default: 'Categories',
-  },
-  categories: {
-    type: Array,
-    required: true,
-    icon: {
-      component: String,
-      background: String,
-    },
-    label: String,
-    description: String,
-  },
-})
 </script>
 
 <template>
@@ -51,7 +54,6 @@ defineProps({
               <h6 class="mb-1 text-sm text-dark">
                 {{ label }}
               </h6>
-              <!-- eslint-disable-next-line vue/no-v-html -->
               <span class="text-xs" v-html="description" />
             </div>
           </div>

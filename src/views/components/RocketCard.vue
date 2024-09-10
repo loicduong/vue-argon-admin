@@ -1,5 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+
+defineOptions({
+  name: 'RocketCard',
+})
 
 const backgroundImage = computed(() => new URL('@/assets/img/ivancik.jpg', import.meta.url).href)
 </script>

@@ -1,35 +1,32 @@
-<script setup>
-defineProps({
-  color: {
-    type: String,
-    default: 'success',
-  },
-  icon: {
-    type: String,
-    default: '',
-  },
-  dismissible: {
-    type: Boolean,
-    default: false,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonAlert',
 })
-function getClasses(color, dismissible) {
-  let colorValue, dismissibleValue
 
+interface Props {
+  color?: string
+  icon?: string
+  dismissible?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  color: 'success',
+  icon: '',
+  dismissible: false,
+})
+
+function getClasses(color?: Props['color'], dismissible?: Props['dismissible']) {
+  let colorValue, dismissibleValue
   colorValue = color ? `alert-${color}` : null
   dismissibleValue = dismissible ? 'alert-dismissible fade show' : null
   return `${colorValue} ${dismissibleValue}`
 }
 
-const getIcon = icon => (icon || null)
+const getIcon = (icon?: Props['icon']) => (icon || null)
 </script>
 
 <template>
-  <div
-    class="alert text-white font-weight-bold"
-    role="alert"
-    :class="getClasses(color, dismissible)"
-  >
+  <div class="alert text-white font-weight-bold" role="alert" :class="getClasses(color, dismissible)">
     <span class="alert-icon">
       <i :class="getIcon(icon)" />
     </span>

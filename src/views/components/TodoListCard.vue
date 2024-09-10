@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineOptions({
+  name: 'TodoListCard',
+})
+</script>
+
 <template>
   <div class="card h-100">
     <div class="card-header">
@@ -8,9 +14,7 @@
     <div class="card-body pt-0">
       <ul class="list-group list-group-flush" data-toggle="checklist">
         <li class="checklist-entry list-group-item px-0">
-          <div
-            class="checklist-item checklist-item-success checklist-item-checked d-flex"
-          >
+          <div class="checklist-item checklist-item-success checklist-item-checked d-flex">
             <div class="checklist-info">
               <h6 class="checklist-title mb-0">
                 Call with Dave
@@ -18,12 +22,7 @@
               <small class="text-xs">09:30 AM</small>
             </div>
             <div class="form-check my-auto ms-auto">
-              <input
-                id="customCheck1"
-                class="form-check-input"
-                type="checkbox"
-                checked
-              >
+              <input id="customCheck1" class="form-check-input" type="checkbox" checked>
             </div>
           </div>
         </li>
@@ -36,11 +35,7 @@
               <small class="text-xs">11:00 AM</small>
             </div>
             <div class="form-check my-auto ms-auto">
-              <input
-                id="customCheck1"
-                class="form-check-input"
-                type="checkbox"
-              >
+              <input id="customCheck1" class="form-check-input" type="checkbox">
             </div>
           </div>
         </li>
@@ -53,18 +48,12 @@
               <small class="text-xs">02:00 PM</small>
             </div>
             <div class="form-check my-auto ms-auto">
-              <input
-                id="customCheck1"
-                class="form-check-input"
-                type="checkbox"
-              >
+              <input id="customCheck1" class="form-check-input" type="checkbox">
             </div>
           </div>
         </li>
         <li class="checklist-entry list-group-item px-0">
-          <div
-            class="checklist-item checklist-item-danger checklist-item-checked d-flex"
-          >
+          <div class="checklist-item checklist-item-danger checklist-item-checked d-flex">
             <div class="checklist-info">
               <h6 class="checklist-title mb-0">
                 Winter Hackaton
@@ -72,12 +61,7 @@
               <small>10:30 AM</small>
             </div>
             <div class="form-check my-auto ms-auto">
-              <input
-                id="customCheck2"
-                class="form-check-input"
-                type="checkbox"
-                checked
-              >
+              <input id="customCheck2" class="form-check-input" type="checkbox" checked>
             </div>
           </div>
         </li>

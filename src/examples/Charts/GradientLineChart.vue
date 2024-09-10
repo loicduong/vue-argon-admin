@@ -1,34 +1,29 @@
-<script setup>
+<script setup lang="ts">
 import Chart from 'chart.js/auto'
 import { onMounted } from 'vue'
 
-const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
-  height: {
-    type: String,
-    default: '300',
-  },
-  title: {
-    type: String,
-    default: '',
-  },
-  description: {
-    type: String,
-    default: '',
-  },
+defineOptions({
+  name: 'GradientLineChart',
+})
+
+interface Props {
+  id: string
+  height?: string
+  title?: string
+  description?: string
   chart: {
-    type: Object,
-    required: true,
-    labels: Array,
+    labels: unknown[]
     datasets: {
-      type: Array,
-      label: String,
-      data: Array,
-    },
-  },
+      label: string
+      data: unknown[]
+    }[]
+  }
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  height: '300',
+  title: '',
+  description: '',
 })
 
 onMounted(() => {

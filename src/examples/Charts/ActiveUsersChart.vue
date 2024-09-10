@@ -1,6 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import Chart from 'chart.js/auto'
 import { onMounted } from 'vue'
+
+defineOptions({
+  name: 'ActiveUsersChart',
+})
 
 onMounted(() => {
   const ctx = document.getElementById('chart-bars').getContext('2d')
@@ -103,17 +107,8 @@ onMounted(() => {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <title>document</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-1870.000000, -591.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
                       <g transform="translate(1716.000000, 291.000000)">
                         <g transform="translate(154.000000, 300.000000)">
                           <path
@@ -162,17 +157,8 @@ onMounted(() => {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <title>spaceship</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-1720.000000, -592.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-1720.000000, -592.000000)" fill="#FFFFFF" fill-rule="nonzero">
                       <g transform="translate(1716.000000, 291.000000)">
                         <g transform="translate(4.000000, 301.000000)">
                           <path
@@ -230,17 +216,8 @@ onMounted(() => {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <title>credit-card</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-2169.000000, -745.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                       <g transform="translate(1716.000000, 291.000000)">
                         <g transform="translate(453.000000, 454.000000)">
                           <path
@@ -289,17 +266,8 @@ onMounted(() => {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <title>settings</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-2020.000000, -442.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
                       <g transform="translate(1716.000000, 291.000000)">
                         <g transform="translate(304.000000, 151.000000)">
                           <polygon

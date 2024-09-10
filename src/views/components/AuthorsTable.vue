@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineOptions({
+  name: 'AuthorsTable',
+})
+</script>
+
 <template>
   <div class="card">
     <div class="card-header pb-0">
@@ -8,24 +14,16 @@
         <table class="table align-items-center mb-0">
           <thead>
             <tr>
-              <th
-                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-              >
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                 Author
               </th>
-              <th
-                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-              >
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                 Function
               </th>
-              <th
-                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-              >
+              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                 Status
               </th>
-              <th
-                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-              >
+              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                 Employed
               </th>
               <th class="text-secondary opacity-7" />
@@ -36,11 +34,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img
-                      src="../../assets/img/team-2.jpg"
-                      class="avatar avatar-sm me-3"
-                      alt="user1"
-                    >
+                    <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">
@@ -79,11 +73,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img
-                      src="../../assets/img/team-3.jpg"
-                      class="avatar avatar-sm me-3"
-                      alt="user2"
-                    >
+                    <img src="../../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">
@@ -122,11 +112,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img
-                      src="../../assets/img/team-4.jpg"
-                      class="avatar avatar-sm me-3"
-                      alt="user3"
-                    >
+                    <img src="../../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">
@@ -165,11 +151,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img
-                      src="../../assets/img/team-3.jpg"
-                      class="avatar avatar-sm me-3"
-                      alt="user4"
-                    >
+                    <img src="../../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user4">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">
@@ -208,11 +190,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img
-                      src="../../assets/img/team-2.jpg"
-                      class="avatar avatar-sm me-3"
-                      alt="user5"
-                    >
+                    <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user5">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">
@@ -251,11 +229,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img
-                      src="../../assets/img/team-4.jpg"
-                      class="avatar avatar-sm me-3"
-                      alt="user6"
-                    >
+                    <img src="../../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user6">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">

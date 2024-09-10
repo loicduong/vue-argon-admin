@@ -1,17 +1,18 @@
-<script setup>
-defineProps({
-  title: {
-    type: String,
-    default: '',
-  },
-  description: {
-    type: String,
-    default: '',
-  },
-  dark: {
-    type: Boolean,
-    default: false,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'TimelineList',
+})
+
+interface Props {
+  title?: string
+  description?: string
+  dark?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  title: '',
+  description: '',
+  dark: false,
 })
 </script>
 
@@ -21,14 +22,10 @@ defineProps({
       <h6 :class="dark ? 'text-white' : ''">
         {{ title }}
       </h6>
-      <!--  eslint-disable-next-line vue/no-v-html -->
       <p v-if="description" class="text-sm" v-html="description" />
     </div>
     <div class="p-3 card-body">
-      <div
-        class="timeline timeline-one-side"
-        :data-timeline-axis-style="dark ? 'dashed' : 'dotted'"
-      >
+      <div class="timeline timeline-one-side" :data-timeline-axis-style="dark ? 'dashed' : 'dotted'">
         <slot />
       </div>
     </div>

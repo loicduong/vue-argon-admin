@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import logoAtlassian from '@/assets/img/small-logos/logo-atlassian.svg'
 import logoInvision from '@/assets/img/small-logos/logo-invision.svg'
 import logoJira from '@/assets/img/small-logos/logo-jira.svg'

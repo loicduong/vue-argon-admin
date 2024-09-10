@@ -1,17 +1,17 @@
-<script setup>
-defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
-  placeholder: {
-    type: String,
-    default: '',
-  },
-  rows: {
-    type: Number,
-    default: 5,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonTextarea',
+})
+
+interface Props {
+  id: string
+  placeholder?: string
+  rows?: number
+}
+
+withDefaults(defineProps<Props>(), {
+  placeholder: '',
+  rows: 5,
 })
 </script>
 
@@ -20,11 +20,6 @@ defineProps({
     <label :for="id">
       <slot />
     </label>
-    <textarea
-      :id="id"
-      class="form-control"
-      :rows="rows"
-      :placeholder="placeholder"
-    />
+    <textarea :id="id" class="form-control" :rows="rows" :placeholder="placeholder" />
   </div>
 </template>

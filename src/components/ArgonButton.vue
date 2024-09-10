@@ -1,27 +1,25 @@
-<script setup>
-defineProps({
-  color: {
-    type: String,
-    default: 'success',
-  },
-  size: {
-    type: String,
-    default: 'md',
-  },
-  variant: {
-    type: String,
-    default: 'fill',
-  },
-  fullWidth: {
-    type: Boolean,
-    default: false,
-  },
-  active: {
-    type: Boolean,
-    default: false,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonButton',
 })
-function getClasses(variant, color, size, fullWidth, active) {
+
+interface Props {
+  color?: string
+  size?: string
+  variant?: string
+  fullWidth?: boolean
+  active?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  color: 'success',
+  size: 'md',
+  variant: 'fill',
+  fullWidth: false,
+  active: false,
+})
+
+function getClasses(variant?: Props['variant'], color?: Props['color'], size?: Props['size'], fullWidth?: Props['fullWidth'], active?: Props['active']) {
   let colorValue, sizeValue, fullWidthValue, activeValue
 
   // Setting the button variant and color
@@ -46,10 +44,7 @@ function getClasses(variant, color, size, fullWidth, active) {
 </script>
 
 <template>
-  <button
-    class="btn mb-0"
-    :class="getClasses(variant, color, size, fullWidth, active)"
-  >
+  <button class="btn mb-0" :class="getClasses(variant, color, size, fullWidth, active)">
     <slot />
   </button>
 </template>

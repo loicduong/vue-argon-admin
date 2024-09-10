@@ -1,6 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
 import { computed } from 'vue'
+
+defineOptions({
+  name: 'SidenavCard',
+})
 
 const store = useThemeStore()
 

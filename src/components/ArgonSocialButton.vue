@@ -1,35 +1,37 @@
-<script>
-export default {
+<script setup lang="ts">
+defineOptions({
   name: 'ArgonSocialButton',
-  props: {
-    icon: String,
-    iconOnly: String,
-    socialBtn: String,
-    rounded: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: 'default',
-    },
-  },
-  methods: {
-    getClasses: (iconOnly, socialBtn, rounded, size) => {
-      let iconOnlyValue, socialBtnValue, roundedValue, sizeValue
+})
 
-      iconOnlyValue = iconOnly ? 'btn-icon-only' : null
+interface Props {
+  icon: string
+  iconOnly: string
+  socialBtn: string
+  rounded?: boolean
+  size?: string
+}
 
-      socialBtnValue = socialBtn ? `btn-${socialBtn}` : null
+withDefaults(defineProps<Props>(), {
+  rounded: false,
+  size: 'default',
+})
 
-      roundedValue = rounded ? 'rounded-circle' : null
+function getClasses(iconOnly: Props['iconOnly'], socialBtn: Props['socialBtn'], rounded?: Props['rounded'], size?: Props['size']) {
+  let iconOnlyValue, socialBtnValue, roundedValue, sizeValue
 
-      sizeValue = size ? `btn-${size}` : null
+  iconOnlyValue = iconOnly ? 'btn-icon-only' : null
 
-      return `${iconOnlyValue} ${socialBtnValue} ${roundedValue} ${sizeValue}`
-    },
-    getIcon: icon => (icon || null),
-  },
+  socialBtnValue = socialBtn ? `btn-${socialBtn}` : null
+
+  roundedValue = rounded ? 'rounded-circle' : null
+
+  sizeValue = size ? `btn-${size}` : null
+
+  return `${iconOnlyValue} ${socialBtnValue} ${roundedValue} ${sizeValue}`
+}
+
+function getIcon(icon: Props['icon']) {
+  return icon || null
 }
 </script>
 

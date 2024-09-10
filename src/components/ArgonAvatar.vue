@@ -1,32 +1,28 @@
-<script setup>
-defineProps({
-  image: {
-    type: String,
-    required: true,
-  },
-  alt: {
-    type: String,
-    default: '',
-  },
-  size: {
-    type: String,
-    default: null,
-  },
-  shadow: {
-    type: String,
-    default: null,
-  },
-  borderRadius: {
-    type: String,
-    default: null,
-  },
-  circular: {
-    type: Boolean,
-    default: false,
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonAvatar',
 })
-const getSize = size => (size ? `avatar-${size}` : null)
-function getClasses(shadow, circular, borderRadius) {
+
+interface Props {
+  image: string
+  alt?: string
+  size?: string | null
+  shadow?: string | null
+  borderRadius?: string | null
+  circular?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  alt: '',
+  size: null,
+  shadow: null,
+  borderRadius: null,
+  circular: false,
+})
+
+const getSize = (size?: Props['size']) => (size ? `avatar-${size}` : null)
+
+function getClasses(shadow?: Props['shadow'], circular?: Props['circular'], borderRadius?: Props['borderRadius']) {
   let shadowValue, circularValue, borderRadiusValue
 
   if (shadow) {
@@ -46,10 +42,6 @@ function getClasses(shadow, circular, borderRadius) {
 
 <template>
   <div class="avatar" :class="getSize(size)">
-    <img
-      :src="image"
-      :alt="alt"
-      :class="[getClasses(shadow, circular, borderRadius)]"
-    >
+    <img :src="image" :alt="alt" :class="[getClasses(shadow, circular, borderRadius)]">
   </div>
 </template>

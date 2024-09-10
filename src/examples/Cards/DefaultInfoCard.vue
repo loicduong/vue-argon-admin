@@ -1,30 +1,21 @@
-<script setup>
-defineProps({
-  icon: {
-    type: [String, Object],
-    required: true,
-    component: {
-      type: String,
-    },
-    background: {
-      type: String,
-    },
-    default: () => ({
-      background: 'bg-gradient-success',
-    }),
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    default: '',
-  },
-  value: {
-    type: [String, Number],
-    default: '',
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'DefaultInfoCard',
+})
+
+interface Props {
+  icon?: string | { component?: string, background: string }
+  title: string
+  description?: string
+  value?: string | number
+}
+
+withDefaults(defineProps<Props>(), {
+  icon: () => ({
+    background: 'bg-gradient-success',
+  }),
+  description: '',
+  value: '',
 })
 </script>
 
@@ -32,13 +23,9 @@ defineProps({
   <div class="card">
     <div class="p-3 mx-4 text-center card-header d-flex justify-content-center">
       <div
-        :class="`icon icon-shape icon-lg shadow text-center border-radius-lg ${icon.background}`"
+        :class="`icon icon-shape icon-lg shadow text-center border-radius-lg ${typeof icon === 'object' ? icon.background : ''}`"
       >
-        <i
-          class="opacity-10"
-          :class="typeof icon === 'string' ? icon : icon.component"
-          aria-hidden="true"
-        />
+        <i class="opacity-10" :class="typeof icon === 'string' ? icon : icon.component" aria-hidden="true" />
       </div>
     </div>
     <div class="p-3 pt-0 text-center card-body">

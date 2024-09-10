@@ -1,15 +1,19 @@
-<script setup>
-defineProps({
-  color: {
-    type: String,
-    default: 'success',
-  },
-  size: {
-    type: String,
-    default: 'md',
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'ArgonPagination',
 })
-function getClasses(color, size) {
+
+interface Props {
+  color?: string
+  size?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  color: 'success',
+  size: 'md',
+})
+
+function getClasses(color?: Props['color'], size?: Props['size']) {
   let colorValue, sizeValue
 
   colorValue = color ? `pagination-${color}` : null

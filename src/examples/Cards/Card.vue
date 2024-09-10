@@ -1,54 +1,33 @@
-<script>
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
+import { ref } from 'vue'
 
-export default {
+defineOptions({
   name: 'Card',
-  props: {
-    directionReverse: Boolean,
-    title: {
-      type: String,
-      required: true,
-    },
-    detail: {
-      type: String,
-      required: true,
-    },
-    titleColor: {
-      type: String,
-    },
-    value: {
-      required: true,
-    },
-    valueColor: {
-      type: String,
-    },
-    percentage: String,
-    iconClass: {
-      type: String,
-      required: true,
-    },
-    percentageColor: {
-      type: String,
-      default: 'text-success',
-    },
-    iconBackground: {
-      type: String,
-      default: 'bg-white',
-    },
-    contentClass: {
-      type: String,
-    },
-  },
-  setup() {
-    const store = useThemeStore()
-    return { store }
-  },
-  data() {
-    return {
-      reverseDirection: 'flex-row-reverse justify-content-between',
-    }
-  },
+})
+
+interface Props {
+  directionReverse?: boolean
+  title: string
+  detail: string
+  titleColor?: string
+  value: string
+  valueColor?: string
+  percentage?: string
+  iconClass: string
+  percentageColor?: string
+  iconBackground?: string
+  contentClass?: string
 }
+
+withDefaults(defineProps<Props>(), {
+  percentageColor: 'text-success',
+  iconBackground: 'bg-white',
+})
+
+const store = useThemeStore()
+
+const reverseDirection = ref('flex-row-reverse justify-content-between')
 </script>
 
 <template>

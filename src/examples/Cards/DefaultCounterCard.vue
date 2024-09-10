@@ -1,29 +1,23 @@
-<script setup>
-defineProps({
-  count: {
-    type: Number,
-    required: true,
-  },
-  prefix: {
-    type: String,
-    default: '',
-  },
-  suffix: {
-    type: String,
-    default: '',
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    default: '',
-  },
-  color: {
-    type: String,
-    default: 'success',
-  },
+<script setup lang="ts">
+defineOptions({
+  name: 'DefaultCounterCard',
+})
+
+interface Props {
+  count: number
+  prefix?: string
+  suffix?: string
+  title: string
+  description?: string
+  color?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  prefix: '',
+  suffix: '',
+  description: '',
+  color: 'success',
+
 })
 </script>
 

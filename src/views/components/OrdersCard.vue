@@ -1,59 +1,39 @@
-<script>
-export default {
+<script setup lang="ts">
+defineOptions({
   name: 'OrdersCard',
-  props: {
-    title: {
-      type: String,
-      default: 'Orders overview',
-    },
-    text: {
-      type: String,
-      default: 'this month',
-    },
-    order: {
-      type: String,
-      default: '$2400, Design changes',
-    },
-    date: {
-      type: String,
-      default: '22 DEC 7:20 PM',
-    },
-    newOrder: {
-      type: String,
-      default: 'New order #1832412',
-    },
-    orderDate: {
-      type: String,
-      default: '21 DEC 11 PM',
-    },
-    payment: {
-      type: String,
-      default: 'Server payments for April',
-    },
-    paymentDate: {
-      type: String,
-      default: '21 DEC 9:34 PM',
-    },
-    newCard: {
-      type: String,
-      default: 'New card added for order #4395133',
-    },
-    newCardDate: {
-      type: String,
-      default: '20 DEC 2:20 AM',
-    },
-    unlockPackages: {
-      type: String,
-      default: 'Unlock packages for development',
-    },
-    unlockPackagesDate: {
-      type: String,
-      default: '18 DEC 4:54 AM',
-    },
-    newOrder2: String,
-    newOrder2Date: String,
-  },
+})
+
+interface Props {
+  title?: string
+  text?: string
+  order?: string
+  date?: string
+  newOrder?: string
+  orderDate?: string
+  payment?: string
+  paymentDate?: string
+  newCard?: string
+  newCardDate?: string
+  unlockPackages?: string
+  unlockPackagesDate?: string
+  newOrder2?: string
+  newOrder2Date?: string
 }
+
+withDefaults(defineProps<Props>(), {
+  title: 'Orders overview',
+  text: 'this month',
+  order: '$2400, Design changes',
+  date: '22 DEC 7:20 PM',
+  newOrder: 'New order #1832412',
+  orderDate: '21 DEC 11 PM',
+  payment: 'Server payments for April',
+  paymentDate: '21 DEC 9:34 PM',
+  newCard: 'New card added for order #4395133',
+  newCardDate: '20 DEC 2:20 AM',
+  unlockPackages: 'Unlock packages for development',
+  unlockPackagesDate: '18 DEC 4:54 AM',
+})
 </script>
 
 <template>

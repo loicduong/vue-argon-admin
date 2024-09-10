@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import ArgonButton from '@/components/ArgonButton.vue'
 import ArgonInput from '@/components/ArgonInput.vue'
 import ArgonSwitch from '@/components/ArgonSwitch.vue'
