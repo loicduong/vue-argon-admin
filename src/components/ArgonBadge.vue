@@ -2,15 +2,15 @@
 defineProps({
   size: {
     type: String,
-    default: "md",
+    default: 'md',
   },
   color: {
     type: String,
-    default: "success",
+    default: 'success',
   },
   variant: {
     type: String,
-    default: "fill",
+    default: 'fill',
   },
   circular: {
     type: Boolean,
@@ -20,26 +20,28 @@ defineProps({
     type: Boolean,
     default: false,
   },
-});
+})
 
-const getClasses = (variant, color, size, circular, floating) => {
-  let colorValue, sizeValue, circleValue, floatingValue;
+function getClasses(variant, color, size, circular, floating) {
+  let colorValue, sizeValue, circleValue, floatingValue
 
-  if (variant === "gradient") {
-    colorValue = `bg-gradient-${color}`;
-  } else {
-    colorValue = `badge-${color}`;
+  if (variant === 'gradient') {
+    colorValue = `bg-gradient-${color}`
+  }
+  else {
+    colorValue = `badge-${color}`
   }
 
-  sizeValue = size ? `badge-${size}` : null;
+  sizeValue = size ? `badge-${size}` : null
 
-  circleValue = circular ? "badge-circle" : null;
+  circleValue = circular ? 'badge-circle' : null
 
-  floatingValue = floating ? "badge-floating" : null;
+  floatingValue = floating ? 'badge-floating' : null
 
-  return `${colorValue} ${sizeValue} ${circleValue} ${floatingValue}`;
-};
+  return `${colorValue} ${sizeValue} ${circleValue} ${floatingValue}`
+}
 </script>
+
 <template>
   <span
     class="badge"

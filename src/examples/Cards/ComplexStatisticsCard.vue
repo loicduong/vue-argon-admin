@@ -1,14 +1,14 @@
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue'
 
-const showMenu = ref(false);
+const showMenu = ref(false)
 defineProps({
   img: {
     type: [String, Object],
     url: String,
     overlay: String,
     default: () => ({
-      overlay: "dark",
+      overlay: 'dark',
     }),
   },
   icon: {
@@ -21,7 +21,7 @@ defineProps({
       type: String,
     },
     default: () => ({
-      background: "bg-white",
+      background: 'bg-white',
     }),
   },
   count: {
@@ -36,7 +36,7 @@ defineProps({
   },
   percentage: {
     type: [String, Object],
-    default: "",
+    default: '',
     label: {
       type: String,
     },
@@ -44,20 +44,21 @@ defineProps({
       type: String,
     },
   },
-});
+})
 </script>
+
 <template>
   <div
     class="card overflow-hidden shadow-lg"
     :style="`background-image: url(${typeof img === 'object' ? img.url : img});
   background-size: cover`"
   >
-    <div class="colored-shadow"></div>
+    <div class="colored-shadow" />
     <span
       :class="`mask bg-gradient-${
         typeof img === 'object' ? img.overlay : 'dark'
       }`"
-    ></span>
+    />
     <div class="card-body p-3 position-relative">
       <div class="row">
         <div class="col-8 text-start">
@@ -69,7 +70,7 @@ defineProps({
               class="text-dark text-gradient text-lg opacity-10"
               :class="typeof icon === 'string' ? icon : icon.component"
               aria-hidden="true"
-            ></i>
+            />
           </div>
           <h5 class="text-white font-weight-bolder mb-0 mt-3">
             {{ count.number }}
@@ -87,7 +88,7 @@ defineProps({
               aria-expanded="false"
               @click="showMenu = !showMenu"
             >
-              <i class="fa fa-ellipsis-h text-white" aria-hidden="true"></i>
+              <i class="fa fa-ellipsis-h text-white" aria-hidden="true" />
             </a>
             <ul
               class="dropdown-menu px-2 py-3"
@@ -95,19 +96,22 @@ defineProps({
               :class="{ show: showMenu }"
             >
               <li>
-                <a class="dropdown-item border-radius-md" href="javascript:;"
-                  >Action</a
-                >
+                <a
+                  class="dropdown-item border-radius-md"
+                  href="javascript:;"
+                >Action</a>
               </li>
               <li>
-                <a class="dropdown-item border-radius-md" href="javascript:;"
-                  >Another action</a
-                >
+                <a
+                  class="dropdown-item border-radius-md"
+                  href="javascript:;"
+                >Another action</a>
               </li>
               <li>
-                <a class="dropdown-item border-radius-md" href="javascript:;"
-                  >Something else here</a
-                >
+                <a
+                  class="dropdown-item border-radius-md"
+                  href="javascript:;"
+                >Something else here</a>
               </li>
             </ul>
           </div>

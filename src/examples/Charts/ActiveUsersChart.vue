@@ -1,21 +1,21 @@
 <script setup>
-import { onMounted } from "vue";
-import Chart from "chart.js/auto";
+import Chart from 'chart.js/auto'
+import { onMounted } from 'vue'
 
 onMounted(() => {
-  let ctx = document.getElementById("chart-bars").getContext("2d");
+  const ctx = document.getElementById('chart-bars').getContext('2d')
   new Chart(ctx, {
-    type: "bar",
+    type: 'bar',
     data: {
-      labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [
         {
-          label: "Sales",
+          label: 'Sales',
           tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
           borderSkipped: false,
-          backgroundColor: "#fff",
+          backgroundColor: '#fff',
           data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
           maxBarThickness: 6,
         },
@@ -31,7 +31,7 @@ onMounted(() => {
       },
       interaction: {
         intersect: false,
-        mode: "index",
+        mode: 'index',
       },
       scales: {
         y: {
@@ -48,11 +48,11 @@ onMounted(() => {
             padding: 15,
             font: {
               size: 14,
-              family: "Open Sans",
-              style: "normal",
+              family: 'Open Sans',
+              style: 'normal',
               lineHeight: 2,
             },
-            color: "#fff",
+            color: '#fff',
           },
         },
         x: {
@@ -68,18 +68,21 @@ onMounted(() => {
         },
       },
     },
-  });
-});
+  })
+})
 </script>
+
 <template>
   <div class="card">
     <div class="card-body p-3">
       <div class="py-3 mb-3 bg-gradient-dark border-radius-lg pe-1">
         <div class="chart">
-          <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+          <canvas id="chart-bars" class="chart-canvas" height="170" />
         </div>
       </div>
-      <h6 class="mt-4 mb-0 me-2">المستخدمين النشطين</h6>
+      <h6 class="mt-4 mb-0 me-2">
+        المستخدمين النشطين
+      </h6>
       <p class="text-sm me-2">
         (
         <span class="font-weight-bolder">+23%</span>) من الأسبوع الماضي
@@ -128,9 +131,13 @@ onMounted(() => {
                   </g>
                 </svg>
               </div>
-              <p class="mt-1 mb-0 text-xs font-weight-bold">المستخدمون</p>
+              <p class="mt-1 mb-0 text-xs font-weight-bold">
+                المستخدمون
+              </p>
             </div>
-            <h4 class="font-weight-bolder">36K</h4>
+            <h4 class="font-weight-bolder">
+              36K
+            </h4>
             <div class="progress w-75">
               <div
                 class="progress-bar bg-dark w-60"
@@ -138,7 +145,7 @@ onMounted(() => {
                 aria-valuenow="60"
                 aria-valuemin="0"
                 aria-valuemax="100"
-              ></div>
+              />
             </div>
           </div>
           <div class="py-3 col-3 ps-0">
@@ -192,9 +199,13 @@ onMounted(() => {
                   </g>
                 </svg>
               </div>
-              <p class="mt-1 mb-0 text-xs font-weight-bold">نقرات</p>
+              <p class="mt-1 mb-0 text-xs font-weight-bold">
+                نقرات
+              </p>
             </div>
-            <h4 class="font-weight-bolder">2m</h4>
+            <h4 class="font-weight-bolder">
+              2m
+            </h4>
             <div class="progress w-75">
               <div
                 class="progress-bar bg-dark w-90"
@@ -202,7 +213,7 @@ onMounted(() => {
                 aria-valuenow="90"
                 aria-valuemin="0"
                 aria-valuemax="100"
-              ></div>
+              />
             </div>
           </div>
           <div class="py-3 col-3 ps-0">
@@ -247,9 +258,13 @@ onMounted(() => {
                   </g>
                 </svg>
               </div>
-              <p class="mt-1 mb-0 text-xs font-weight-bold">مبيعات</p>
+              <p class="mt-1 mb-0 text-xs font-weight-bold">
+                مبيعات
+              </p>
             </div>
-            <h4 class="font-weight-bolder">435$</h4>
+            <h4 class="font-weight-bolder">
+              435$
+            </h4>
             <div class="progress w-75">
               <div
                 class="progress-bar bg-dark w-30"
@@ -257,7 +272,7 @@ onMounted(() => {
                 aria-valuenow="30"
                 aria-valuemin="0"
                 aria-valuemax="100"
-              ></div>
+              />
             </div>
           </div>
           <div class="py-3 col-3 ps-0">
@@ -307,9 +322,13 @@ onMounted(() => {
                   </g>
                 </svg>
               </div>
-              <p class="mt-1 mb-0 text-xs font-weight-bold">العناصر</p>
+              <p class="mt-1 mb-0 text-xs font-weight-bold">
+                العناصر
+              </p>
             </div>
-            <h4 class="font-weight-bolder">43</h4>
+            <h4 class="font-weight-bolder">
+              43
+            </h4>
             <div class="progress w-75">
               <div
                 class="progress-bar bg-dark w-50"
@@ -317,7 +336,7 @@ onMounted(() => {
                 aria-valuenow="50"
                 aria-valuemin="0"
                 aria-valuemax="100"
-              ></div>
+              />
             </div>
           </div>
         </div>

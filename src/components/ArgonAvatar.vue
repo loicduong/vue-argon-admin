@@ -6,7 +6,7 @@ defineProps({
   },
   alt: {
     type: String,
-    default: "",
+    default: '',
   },
   size: {
     type: String,
@@ -24,30 +24,32 @@ defineProps({
     type: Boolean,
     default: false,
   },
-});
-const getSize = (size) => (size ? `avatar-${size}` : null);
-const getClasses = (shadow, circular, borderRadius) => {
-  let shadowValue, circularValue, borderRadiusValue;
+})
+const getSize = size => (size ? `avatar-${size}` : null)
+function getClasses(shadow, circular, borderRadius) {
+  let shadowValue, circularValue, borderRadiusValue
 
   if (shadow) {
-    shadowValue = shadow === "regular" ? "shadow" : `shadow-${shadow}`;
-  } else {
-    shadowValue = null;
+    shadowValue = shadow === 'regular' ? 'shadow' : `shadow-${shadow}`
+  }
+  else {
+    shadowValue = null
   }
 
-  circularValue = circular ? "rounded-circle" : null;
+  circularValue = circular ? 'rounded-circle' : null
 
-  borderRadiusValue = borderRadius ? `border-radius-${borderRadius}` : null;
+  borderRadiusValue = borderRadius ? `border-radius-${borderRadius}` : null
 
-  return `${shadowValue} ${circularValue} ${borderRadiusValue}`;
-};
+  return `${shadowValue} ${circularValue} ${borderRadiusValue}`
+}
 </script>
+
 <template>
   <div class="avatar" :class="getSize(size)">
     <img
       :src="image"
       :alt="alt"
       :class="[getClasses(shadow, circular, borderRadius)]"
-    />
+    >
   </div>
 </template>

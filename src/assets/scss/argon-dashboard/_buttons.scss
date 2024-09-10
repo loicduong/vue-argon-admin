@@ -4,7 +4,7 @@
   text-transform: none;
   box-shadow: $btn-box-shadow;
 
-  &:not([class*="btn-outline-"]) {
+  &:not([class*='btn-outline-']) {
     border: 0;
   }
 

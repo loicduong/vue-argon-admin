@@ -108,7 +108,7 @@
     }
   }
 
-  &[aria-expanded="true"] {
+  &[aria-expanded='true'] {
     .navbar-toggler-bar {
       &.bar1 {
         transform: $navbar-toggler-bar-1-transform;

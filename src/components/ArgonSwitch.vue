@@ -14,14 +14,15 @@ defineProps({
   },
   labelClass: {
     type: String,
-    default: "",
+    default: '',
   },
   inputClass: {
     type: String,
-    default: "",
+    default: '',
   },
-});
+})
 </script>
+
 <template>
   <div class="form-check form-switch ps-0">
     <input
@@ -31,7 +32,7 @@ defineProps({
       type="checkbox"
       :name="name"
       :checked="checked"
-    />
+    >
     <label class="form-check-label" :class="labelClass" :for="id">
       <slot />
     </label>

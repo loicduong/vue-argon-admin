@@ -2,27 +2,28 @@
 defineProps({
   color: {
     type: String,
-    default: "success",
+    default: 'success',
   },
   icon: {
     type: String,
-    default: "",
+    default: '',
   },
   dismissible: {
     type: Boolean,
     default: false,
   },
-});
-const getClasses = (color, dismissible) => {
-  let colorValue, dismissibleValue;
+})
+function getClasses(color, dismissible) {
+  let colorValue, dismissibleValue
 
-  colorValue = color ? `alert-${color}` : null;
-  dismissibleValue = dismissible ? "alert-dismissible fade show" : null;
-  return `${colorValue} ${dismissibleValue}`;
-};
+  colorValue = color ? `alert-${color}` : null
+  dismissibleValue = dismissible ? 'alert-dismissible fade show' : null
+  return `${colorValue} ${dismissibleValue}`
+}
 
-const getIcon = (icon) => (icon ? icon : null);
+const getIcon = icon => (icon || null)
 </script>
+
 <template>
   <div
     class="alert text-white font-weight-bold"

@@ -2,26 +2,30 @@
   "name": "vue-argon-admin",
   "type": "module",
   "version": "0.0.0",
+  "description": "VueJS version of Argon Dashboard 2 by Creative Tim",
   "author": {
     "name": "Loic Duong",
     "email": "dploc96@gmail.com",
     "url": "https://github.com/loicduong"
   },
   "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
-  "description": "VueJS version of Argon Dashboard 2 by Creative Tim",
   "homepage": "https://demos.creative-tim.com/vue-argon-dashboard/",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/vue-argon-dashboard/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/creativetimofficial/vue-argon-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/vue-argon-dashboard/issues"
+  },
+  "engines": {
+    "node": ">=18.12.0",
+    "pnpm": ">=8.7.0"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "prettify": "prettier --write .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
@@ -38,24 +42,17 @@
     "vue-router": "4.3.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.23.10",
+    "@antfu/eslint-config": "3.3.2",
     "@types/node": "22.5.4",
     "@vitejs/plugin-vue": "5.1.3",
     "@vue/compiler-sfc": "3.4.19",
     "@vue/eslint-config-prettier": "9.0.0",
     "cross-env": "7.0.3",
-    "eslint": "8.56.0",
-    "eslint-plugin-prettier": "5.1.3",
-    "eslint-plugin-vue": "9.21.1",
-    "prettier": "3.2.5",
+    "eslint": "9.9.1",
+    "eslint-plugin-format": "0.1.2",
     "sass": "1.71.1",
-    "sass-loader": "13.3.2",
     "typescript": "5.6.2",
     "vite": "5.4.3",
     "vue-tsc": "2.1.6"
-  },
-  "engines": {
-    "node": ">=18.12.0",
-    "pnpm": ">=8.7.0"
   }
 }

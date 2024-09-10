@@ -1,17 +1,24 @@
 <script setup>
-import ArgonButton from "@/components/ArgonButton.vue";
+import ArgonButton from '@/components/ArgonButton.vue'
 </script>
+
 <template>
   <div class="card pb-4">
     <div class="card-header pb-0 p-3">
       <div class="row">
         <div class="col-6 d-flex align-items-center">
-          <h6 class="mb-0">Invoices</h6>
+          <h6 class="mb-0">
+            Invoices
+          </h6>
         </div>
         <div class="col-6 text-end">
-          <argon-button color="success" size="sm" variant="outline"
-            >View All</argon-button
+          <ArgonButton
+            color="success"
+            size="sm"
+            variant="outline"
           >
+            View All
+          </ArgonButton>
         </div>
       </div>
     </div>
@@ -29,7 +36,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
           <div class="d-flex align-items-center text-sm">
             $180
             <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true"></i>
+              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true" />
               PDF
             </button>
           </div>
@@ -46,7 +53,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
           <div class="d-flex align-items-center text-sm">
             $250
             <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true"></i>
+              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true" />
               PDF
             </button>
           </div>
@@ -63,7 +70,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
           <div class="d-flex align-items-center text-sm">
             $560
             <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true"></i>
+              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true" />
               PDF
             </button>
           </div>
@@ -80,7 +87,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
           <div class="d-flex align-items-center text-sm">
             $120
             <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true"></i>
+              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true" />
               PDF
             </button>
           </div>
@@ -97,7 +104,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
           <div class="d-flex align-items-center text-sm">
             $300
             <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true"></i>
+              <i class="fas fa-file-pdf text-lg me-1" aria-hidden="true" />
               PDF
             </button>
           </div>

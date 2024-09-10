@@ -2,24 +2,27 @@
 defineProps({
   title: {
     type: String,
-    default: "",
+    default: '',
   },
   description: {
     type: String,
-    default: "",
+    default: '',
   },
   dark: {
     type: Boolean,
     default: false,
   },
-});
+})
 </script>
+
 <template>
   <div class="card" :class="dark ? 'bg-gradient-dark' : ''">
     <div class="pb-0 card-header" :class="dark ? 'bg-transparent' : ''">
-      <h6 :class="dark ? 'text-white' : ''">{{ title }}</h6>
+      <h6 :class="dark ? 'text-white' : ''">
+        {{ title }}
+      </h6>
       <!--  eslint-disable-next-line vue/no-v-html -->
-      <p v-if="description" class="text-sm" v-html="description"></p>
+      <p v-if="description" class="text-sm" v-html="description" />
     </div>
     <div class="p-3 card-body">
       <div

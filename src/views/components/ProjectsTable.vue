@@ -28,7 +28,7 @@
               >
                 Completion
               </th>
-              <th></th>
+              <th />
             </tr>
           </thead>
           <tbody>
@@ -40,15 +40,19 @@
                       src="../../assets/img/small-logos/logo-spotify.svg"
                       class="avatar avatar-sm rounded-circle me-2"
                       alt="spotify"
-                    />
+                    >
                   </div>
                   <div class="my-auto">
-                    <h6 class="mb-0 text-sm">Spotify</h6>
+                    <h6 class="mb-0 text-sm">
+                      Spotify
+                    </h6>
                   </div>
                 </div>
               </td>
               <td>
-                <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                <p class="text-sm font-weight-bold mb-0">
+                  $2,500
+                </p>
               </td>
               <td>
                 <span class="text-xs font-weight-bold">working</span>
@@ -65,14 +69,14 @@
                         aria-valuemin="0"
                         aria-valuemax="100"
                         style="width: 60%"
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
               </td>
               <td class="align-middle">
                 <button class="btn btn-link text-secondary mb-0">
-                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
             </tr>
@@ -84,15 +88,19 @@
                       src="../../assets/img/small-logos/logo-invision.svg"
                       class="avatar avatar-sm rounded-circle me-2"
                       alt="invision"
-                    />
+                    >
                   </div>
                   <div class="my-auto">
-                    <h6 class="mb-0 text-sm">Invision</h6>
+                    <h6 class="mb-0 text-sm">
+                      Invision
+                    </h6>
                   </div>
                 </div>
               </td>
               <td>
-                <p class="text-sm font-weight-bold mb-0">$5,000</p>
+                <p class="text-sm font-weight-bold mb-0">
+                  $5,000
+                </p>
               </td>
               <td>
                 <span class="text-xs font-weight-bold">done</span>
@@ -109,7 +117,7 @@
                         aria-valuemin="0"
                         aria-valuemax="100"
                         style="width: 100%"
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
@@ -120,7 +128,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
             </tr>
@@ -132,15 +140,19 @@
                       src="../../assets/img/small-logos/logo-jira.svg"
                       class="avatar avatar-sm rounded-circle me-2"
                       alt="jira"
-                    />
+                    >
                   </div>
                   <div class="my-auto">
-                    <h6 class="mb-0 text-sm">Jira</h6>
+                    <h6 class="mb-0 text-sm">
+                      Jira
+                    </h6>
                   </div>
                 </div>
               </td>
               <td>
-                <p class="text-sm font-weight-bold mb-0">$3,400</p>
+                <p class="text-sm font-weight-bold mb-0">
+                  $3,400
+                </p>
               </td>
               <td>
                 <span class="text-xs font-weight-bold">canceled</span>
@@ -157,7 +169,7 @@
                         aria-valuemin="0"
                         aria-valuemax="30"
                         style="width: 30%"
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
@@ -168,7 +180,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
             </tr>
@@ -180,15 +192,19 @@
                       src="../../assets/img/small-logos/logo-slack.svg"
                       class="avatar avatar-sm rounded-circle me-2"
                       alt="slack"
-                    />
+                    >
                   </div>
                   <div class="my-auto">
-                    <h6 class="mb-0 text-sm">Slack</h6>
+                    <h6 class="mb-0 text-sm">
+                      Slack
+                    </h6>
                   </div>
                 </div>
               </td>
               <td>
-                <p class="text-sm font-weight-bold mb-0">$1,000</p>
+                <p class="text-sm font-weight-bold mb-0">
+                  $1,000
+                </p>
               </td>
               <td>
                 <span class="text-xs font-weight-bold">canceled</span>
@@ -205,7 +221,7 @@
                         aria-valuemin="0"
                         aria-valuemax="0"
                         style="width: 0%"
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
@@ -216,7 +232,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
             </tr>
@@ -228,15 +244,19 @@
                       src="https://demos.creative-tim.com/argon-dashboard/assets/img/small-logos/logo-webdev.svg"
                       class="avatar avatar-sm rounded-circle me-2"
                       alt="webdev"
-                    />
+                    >
                   </div>
                   <div class="my-auto">
-                    <h6 class="mb-0 text-sm">Webdev</h6>
+                    <h6 class="mb-0 text-sm">
+                      Webdev
+                    </h6>
                   </div>
                 </div>
               </td>
               <td>
-                <p class="text-sm font-weight-bold mb-0">$14,000</p>
+                <p class="text-sm font-weight-bold mb-0">
+                  $14,000
+                </p>
               </td>
               <td>
                 <span class="text-xs font-weight-bold">working</span>
@@ -253,7 +273,7 @@
                         aria-valuemin="0"
                         aria-valuemax="80"
                         style="width: 80%"
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
@@ -264,7 +284,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
             </tr>
@@ -276,15 +296,19 @@
                       src="../../assets/img/small-logos/logo-xd.svg"
                       class="avatar avatar-sm rounded-circle me-2"
                       alt="xd"
-                    />
+                    >
                   </div>
                   <div class="my-auto">
-                    <h6 class="mb-0 text-sm">Adobe XD</h6>
+                    <h6 class="mb-0 text-sm">
+                      Adobe XD
+                    </h6>
                   </div>
                 </div>
               </td>
               <td>
-                <p class="text-sm font-weight-bold mb-0">$2,300</p>
+                <p class="text-sm font-weight-bold mb-0">
+                  $2,300
+                </p>
               </td>
               <td>
                 <span class="text-xs font-weight-bold">done</span>
@@ -301,7 +325,7 @@
                         aria-valuemin="0"
                         aria-valuemax="100"
                         style="width: 100%"
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
@@ -312,7 +336,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+                  <i class="fa fa-ellipsis-v text-xs" aria-hidden="true" />
                 </button>
               </td>
             </tr>

@@ -1,18 +1,21 @@
 <script setup>
-import ArgonButton from "@/components/ArgonButton.vue";
+import ArgonButton from '@/components/ArgonButton.vue'
 </script>
+
 <template>
   <div class="card mt-4">
     <div class="card-header pb-0 p-3">
       <div class="row">
         <div class="col-6 d-flex align-items-center">
-          <h6 class="mb-0">Payment Method</h6>
+          <h6 class="mb-0">
+            Payment Method
+          </h6>
         </div>
         <div class="col-6 text-end">
-          <argon-button color="dark" variant="gradient">
-            <i class="fas fa-plus me-2"></i>
+          <ArgonButton color="dark" variant="gradient">
+            <i class="fas fa-plus me-2" />
             Add New Card
-          </argon-button>
+          </ArgonButton>
         </div>
       </div>
     </div>
@@ -26,7 +29,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
               class="w-10 me-3 mb-0"
               src="@/assets/img/logos/mastercard.png"
               alt="logo"
-            />
+            >
             <h6 class="mb-0">
               ****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;7852
             </h6>
@@ -38,7 +41,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
               aria-hidden="true"
               data-bs-original-title="Edit Card"
               aria-label="Edit Card"
-            ></i>
+            />
             <span class="sr-only">Edit Card</span>
           </div>
         </div>
@@ -50,7 +53,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
               class="w-10 me-3 mb-0"
               src="@/assets/img/logos/visa.png"
               alt="logo"
-            />
+            >
             <h6 class="mb-0">
               ****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;5248
             </h6>
@@ -62,7 +65,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
               aria-hidden="true"
               data-bs-original-title="Edit Card"
               aria-label="Edit Card"
-            ></i>
+            />
             <span class="sr-only">Edit Card</span>
           </div>
         </div>

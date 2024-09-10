@@ -12,7 +12,7 @@
 
     .dropdown-toggle {
       &:after {
-        content: "\f107";
+        content: '\f107';
         font: normal normal normal 14px/1 FontAwesome;
         border: none;
         vertical-align: middle;
@@ -42,10 +42,7 @@
       will-change: animation, box-shadow;
     }
 
-    &.dropdown-hover:hover
-      > .dropdown-menu
-      .dropdown-hover:hover
-      > .dropdown-menu,
+    &.dropdown-hover:hover > .dropdown-menu .dropdown-hover:hover > .dropdown-menu,
     .dropdown-menu.show {
       opacity: 1;
       pointer-events: auto;
@@ -60,7 +57,7 @@
 
     &.dropdown-hover {
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         bottom: $dropdown-hover-after-bottom-pos;
@@ -75,8 +72,8 @@
 
     .dropdown-menu {
       &:before {
-        font-family: "FontAwesome";
-        content: "\f0d8";
+        font-family: 'FontAwesome';
+        content: '\f0d8';
         position: absolute;
         top: 0;
         left: $dropdown-animation-arrow-left-position;
@@ -116,8 +113,8 @@
         box-shadow: $dropdown-box-shadow;
 
         &:before {
-          font-family: "FontAwesome";
-          content: "\f0d8";
+          font-family: 'FontAwesome';
+          content: '\f0d8';
           position: absolute;
           top: 0;
           left: $dropdown-animation-arrow-left-position;
@@ -163,8 +160,8 @@
       box-shadow: $dropdown-box-shadow;
 
       &:before {
-        font-family: "FontAwesome";
-        content: "\f0d8";
+        font-family: 'FontAwesome';
+        content: '\f0d8';
         position: absolute;
         top: 0;
         left: $dropdown-animation-arrow-left-position;

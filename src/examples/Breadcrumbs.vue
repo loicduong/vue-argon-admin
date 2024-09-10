@@ -1,26 +1,30 @@
 <script setup>
-import { computed } from "vue";
-import { useThemeStore } from "@/store";
+import { useThemeStore } from '@/store'
+import { computed } from 'vue'
 
-const store = useThemeStore();
-const isRTL = computed(() => store.isRTL);
-const isNavFixed = computed(() => store.isNavFixed);
+const store = useThemeStore()
+const isRTL = computed(() => store.isRTL)
+const isNavFixed = computed(() => store.isNavFixed)
 
 defineProps({
   currentPage: {
     type: String,
-    default: "",
+    default: '',
   },
   currentDirectory: {
     type: String,
-    default: "",
+    default: '',
   },
-});
+})
 </script>
+
 <template>
   <nav aria-label="breadcrumb">
-    <ol class="px-0 pt-1 pb-0 mb-0 bg-transparent breadcrumb" :class="`${isRTL ? '' : ' me-sm-6'} ${isNavFixed ? 'text-dark' : 'text-white'
-      }`">
+    <ol
+      class="px-0 pt-1 pb-0 mb-0 bg-transparent breadcrumb"
+      :class="`${isRTL ? '' : ' me-sm-6'} ${isNavFixed ? 'text-dark' : 'text-white'
+      }`"
+    >
       <li class="text-sm breadcrumb-item">
         <a v-if="isRTL" class="opacity-5 ps-2" href="#" :class="isNavFixed ? 'text-dark' : 'text-white'">لوحات
           القيادة</a>

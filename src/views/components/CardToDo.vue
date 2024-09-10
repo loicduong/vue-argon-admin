@@ -2,14 +2,24 @@
   <div class="card bg-gradient-dark move-on-hover">
     <div class="card-body">
       <div class="d-flex">
-        <h5 class="mb-0 text-white">To Do</h5>
+        <h5 class="mb-0 text-white">
+          To Do
+        </h5>
         <div class="ms-auto">
-          <h1 class="mb-0 text-white text-end mt-n2">7</h1>
-          <p class="mb-0 text-sm text-white">items</p>
+          <h1 class="mb-0 text-white text-end mt-n2">
+            7
+          </h1>
+          <p class="mb-0 text-sm text-white">
+            items
+          </p>
         </div>
       </div>
-      <p class="mb-0 text-white">Shopping</p>
-      <p class="mb-0 text-white">Meeting</p>
+      <p class="mb-0 text-white">
+        Shopping
+      </p>
+      <p class="mb-0 text-white">
+        Meeting
+      </p>
     </div>
     <a
       href="javascript:;"
@@ -18,7 +28,7 @@
       data-bs-placement="top"
       title="Show More"
     >
-      <i class="text-white fas fa-chevron-down"></i>
+      <i class="text-white fas fa-chevron-down" />
     </a>
   </div>
 </template>

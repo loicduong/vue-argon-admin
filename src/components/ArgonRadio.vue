@@ -12,8 +12,9 @@ defineProps({
     type: Boolean,
     default: false,
   },
-});
+})
 </script>
+
 <template>
   <div class="form-check">
     <input
@@ -22,7 +23,7 @@ defineProps({
       type="radio"
       :name="name"
       :checked="checked"
-    />
+    >
     <label class="custom-control-label" :for="id">
       <slot />
     </label>

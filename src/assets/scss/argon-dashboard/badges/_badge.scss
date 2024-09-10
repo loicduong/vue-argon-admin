@@ -48,8 +48,8 @@
 }
 
 .badge-secondary {
-  background-color: theme-color("secondary");
-  color: color-yiq(theme-color("secondary"));
+  background-color: theme-color('secondary');
+  color: color-yiq(theme-color('secondary'));
 }
 
 // Badge spacing inside a btn with some text

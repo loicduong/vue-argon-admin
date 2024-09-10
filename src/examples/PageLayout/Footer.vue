@@ -53,35 +53,35 @@
             target="_blank"
             class="text-secondary me-xl-4 me-4"
           >
-            <span class="text-lg fab fa-dribbble"></span>
+            <span class="text-lg fab fa-dribbble" />
           </a>
           <a
             href="javascript:;"
             target="_blank"
             class="text-secondary me-xl-4 me-4"
           >
-            <span class="text-lg fab fa-twitter"></span>
+            <span class="text-lg fab fa-twitter" />
           </a>
           <a
             href="javascript:;"
             target="_blank"
             class="text-secondary me-xl-4 me-4"
           >
-            <span class="text-lg fab fa-instagram"></span>
+            <span class="text-lg fab fa-instagram" />
           </a>
           <a
             href="javascript:;"
             target="_blank"
             class="text-secondary me-xl-4 me-4"
           >
-            <span class="text-lg fab fa-pinterest"></span>
+            <span class="text-lg fab fa-pinterest" />
           </a>
           <a
             href="javascript:;"
             target="_blank"
             class="text-secondary me-xl-4 me-4"
           >
-            <span class="text-lg fab fa-github"></span>
+            <span class="text-lg fab fa-github" />
           </a>
         </div>
       </div>

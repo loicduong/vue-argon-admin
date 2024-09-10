@@ -1,15 +1,18 @@
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 
-const backgroundImage = computed(() => new URL('@/assets/img/ivancik.jpg', import.meta.url).href);
+const backgroundImage = computed(() => new URL('@/assets/img/ivancik.jpg', import.meta.url).href)
 </script>
 
 <template>
   <div class="card h-100 p-3">
-    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" :style="{
-      backgroundImage: `url(${backgroundImage})`,
-    }">
-      <span class="mask bg-gradient-dark"></span>
+    <div
+      class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+      :style="{
+        backgroundImage: `url(${backgroundImage})`,
+      }"
+    >
+      <span class="mask bg-gradient-dark" />
       <div class="card-body position-relative z-index-1 p-3 h-100">
         <div class="d-flex flex-column h-100">
           <h5 class="text-white font-weight-bolder mb-4 pt-2">
@@ -21,7 +24,7 @@ const backgroundImage = computed(() => new URL('@/assets/img/ivancik.jpg', impor
           </p>
           <a class="text-white font-weight-bold ps-1 mb-0 icon-move-left mt-auto" href="javascript:;">
             اقرأ المستندات
-            <i class="fas fa-arrow-left text-sm ms-1" aria-hidden="true"></i>
+            <i class="fas fa-arrow-left text-sm ms-1" aria-hidden="true" />
           </a>
         </div>
       </div>

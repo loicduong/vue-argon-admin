@@ -1,14 +1,14 @@
 <script setup>
-import { computed } from "vue";
-import { useThemeStore } from "@/store";
+import { useThemeStore } from '@/store'
+import { computed } from 'vue'
 
-const store = useThemeStore();
-const isRTL = computed(() => store.isRTL);
+const store = useThemeStore()
+const isRTL = computed(() => store.isRTL)
 
 defineProps({
   title: {
     type: String,
-    default: "Categories",
+    default: 'Categories',
   },
   categories: {
     type: Array,
@@ -20,33 +20,44 @@ defineProps({
     label: String,
     description: String,
   },
-});
+})
 </script>
+
 <template>
   <div class="card">
     <div class="p-3 pb-0 card-header">
-      <h6 class="mb-0">{{ title }}</h6>
+      <h6 class="mb-0">
+        {{ title }}
+      </h6>
     </div>
     <div class="p-3 card-body">
       <ul :class="`list-group ${isRTL ? 'pe-0' : ''}`">
-        <li v-for="(
+        <li
+          v-for="(
             { icon: { component, background }, label, description }, index
-          ) of categories" :key="index" :class="`mb-2 border-0 list-group-item d-flex justify-content-between border-radius-lg
-          ${isRTL ? 'pe-0' : 'ps-0'}`">
+          ) of categories"
+          :key="index"
+          :class="`mb-2 border-0 list-group-item d-flex justify-content-between border-radius-lg
+          ${isRTL ? 'pe-0' : 'ps-0'}`"
+        >
           <div class="d-flex align-items-center">
-            <div :class="`text-center shadow icon icon-shape icon-sm bg-gradient-${background} ${isRTL ? 'ms-3' : 'me-3'
-              }`">
-              <i :class="`${component} text-white opacity-10`"></i>
+            <div
+              :class="`text-center shadow icon icon-shape icon-sm bg-gradient-${background} ${isRTL ? 'ms-3' : 'me-3'
+              }`"
+            >
+              <i :class="`${component} text-white opacity-10`" />
             </div>
             <div class="d-flex flex-column">
-              <h6 class="mb-1 text-sm text-dark">{{ label }}</h6>
+              <h6 class="mb-1 text-sm text-dark">
+                {{ label }}
+              </h6>
               <!-- eslint-disable-next-line vue/no-v-html -->
-              <span class="text-xs" v-html="description"> </span>
+              <span class="text-xs" v-html="description" />
             </div>
           </div>
           <div class="d-flex">
             <button class="my-auto btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right">
-              <i :class="`ni ${isRTL ? 'ni-bold-left' : 'ni-bold-right'}`" aria-hidden="true"></i>
+              <i :class="`ni ${isRTL ? 'ni-bold-left' : 'ni-bold-right'}`" aria-hidden="true" />
             </button>
           </div>
         </li>

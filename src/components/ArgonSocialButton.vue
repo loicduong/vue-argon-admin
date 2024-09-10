@@ -1,18 +1,6 @@
-<template>
-  <button type="button" class="btn" :class="getClasses(iconOnly, socialBtn, rounded, size)">
-    <span class="btn-inner--icon">
-      <i :class="getIcon(icon)"></i>
-    </span>
-    <span class="btn-inner--text">
-      &nbsp;
-      <slot />
-    </span>
-  </button>
-</template>
-
 <script>
 export default {
-  name: "argon-socialButton",
+  name: 'ArgonSocialButton',
   props: {
     icon: String,
     iconOnly: String,
@@ -23,24 +11,36 @@ export default {
     },
     size: {
       type: String,
-      default: "default",
+      default: 'default',
     },
   },
   methods: {
     getClasses: (iconOnly, socialBtn, rounded, size) => {
-      let iconOnlyValue, socialBtnValue, roundedValue, sizeValue;
+      let iconOnlyValue, socialBtnValue, roundedValue, sizeValue
 
-      iconOnlyValue = iconOnly ? "btn-icon-only" : null;
+      iconOnlyValue = iconOnly ? 'btn-icon-only' : null
 
-      socialBtnValue = socialBtn ? `btn-${socialBtn}` : null;
+      socialBtnValue = socialBtn ? `btn-${socialBtn}` : null
 
-      roundedValue = rounded ? "rounded-circle" : null;
+      roundedValue = rounded ? 'rounded-circle' : null
 
-      sizeValue = size ? `btn-${size}` : null;
+      sizeValue = size ? `btn-${size}` : null
 
-      return `${iconOnlyValue} ${socialBtnValue} ${roundedValue} ${sizeValue}`;
+      return `${iconOnlyValue} ${socialBtnValue} ${roundedValue} ${sizeValue}`
     },
-    getIcon: (icon) => (icon ? icon : null),
+    getIcon: icon => (icon || null),
   },
-};
+}
 </script>
+
+<template>
+  <button type="button" class="btn" :class="getClasses(iconOnly, socialBtn, rounded, size)">
+    <span class="btn-inner--icon">
+      <i :class="getIcon(icon)" />
+    </span>
+    <span class="btn-inner--text">
+      &nbsp;
+      <slot />
+    </span>
+  </button>
+</template>

@@ -2,11 +2,11 @@
 defineProps({
   title: {
     type: String,
-    default: "",
+    default: '',
   },
   description: {
     type: String,
-    default: "",
+    default: '',
   },
   headings: {
     type: Array,
@@ -26,8 +26,9 @@ defineProps({
     route: String,
     label: String,
   },
-});
+})
 </script>
+
 <template>
   <div class="card">
     <div class="card-header pb-0">
@@ -36,15 +37,15 @@ defineProps({
           <h6>{{ title }}</h6>
           <p class="text-sm mb-0" v-html="description" />
         </div>
-        <div class="col-lg-6 col-5 my-auto text-end" v-if="action">
+        <div v-if="action" class="col-lg-6 col-5 my-auto text-end">
           <div class="dropdown float-lg-start pe-4">
             <a
-              class="cursor-pointer"
               :id="title"
+              class="cursor-pointer"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <i class="fa fa-ellipsis-v text-secondary" aria-hidden="true"></i>
+              <i class="fa fa-ellipsis-v text-secondary" aria-hidden="true" />
             </a>
             <ul
               class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5 text-end"
@@ -83,10 +84,12 @@ defineProps({
               <td>
                 <div class="d-flex py-1">
                   <div>
-                    <img :src="logo" class="avatar avatar-sm me-3" alt="xd" />
+                    <img :src="logo" class="avatar avatar-sm me-3" alt="xd">
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm me-3">{{ tool }}</h6>
+                    <h6 class="mb-0 text-sm me-3">
+                      {{ tool }}
+                    </h6>
                   </div>
                 </div>
               </td>
@@ -102,7 +105,7 @@ defineProps({
                     title
                     data-bs-original-title="Ryan Tompson"
                   >
-                    <img :src="image" alt="team1" />
+                    <img :src="image" alt="team1">
                   </a>
                 </div>
               </td>
@@ -113,9 +116,7 @@ defineProps({
                 <div class="progress-wrapper w-75 mx-auto">
                   <div class="progress-info">
                     <div class="progress-percentage">
-                      <span class="text-xs font-weight-bold"
-                        >{{ progress }}%</span
-                      >
+                      <span class="text-xs font-weight-bold">{{ progress }}%</span>
                     </div>
                   </div>
                   <div class="progress">
@@ -126,7 +127,7 @@ defineProps({
                       :aria-valuenow="progress"
                       aria-valuemin="0"
                       aria-valuemax="100"
-                    ></div>
+                    />
                   </div>
                 </div>
               </td>

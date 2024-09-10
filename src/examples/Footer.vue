@@ -1,6 +1,7 @@
 <script setup>
-import { useThemeStore } from "@/store";
-const store = useThemeStore();
+import { useThemeStore } from '@/store'
+
+const store = useThemeStore()
 </script>
 
 <template>
@@ -11,7 +12,7 @@ const store = useThemeStore();
           <div class="text-sm text-center copyright text-muted" :class="store.isRTL ? 'text-lg-end' : 'text-lg-start'">
             ©
             {{ new Date().getFullYear() }}, made with
-            <i class="fa fa-heart"></i> by
+            <i class="fa fa-heart" /> by
             <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
             for a better web.
           </div>
@@ -29,8 +30,11 @@ const store = useThemeStore();
               <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
             </li>
             <li class="nav-item">
-              <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted"
-                target="_blank">License</a>
+              <a
+                href="https://www.creative-tim.com/license"
+                class="nav-link pe-0 text-muted"
+                target="_blank"
+              >License</a>
             </li>
           </ul>
         </div>

@@ -16,7 +16,7 @@ defineProps({
   },
   description: {
     type: String,
-    default: "",
+    default: '',
   },
   value: {
     type: [Object, String, Number],
@@ -37,7 +37,7 @@ defineProps({
       type: String,
     },
     default: () => ({
-      color: "success",
+      color: 'success',
     }),
   },
   icon: {
@@ -52,16 +52,17 @@ defineProps({
       type: String,
     },
     default: () => ({
-      background: "bg-white",
-      shape: " border-radius-md",
+      background: 'bg-white',
+      shape: ' border-radius-md',
     }),
   },
   classContent: {
     type: String,
-    default: "",
+    default: '',
   },
-});
+})
 </script>
+
 <template>
   <div class="mb-3 card">
     <div class="p-3 card-body">
@@ -82,7 +83,7 @@ defineProps({
             class="text-lg opacity-10"
             :class="typeof icon === 'string' ? icon : icon.component"
             aria-hidden="true"
-          ></i>
+          />
         </div>
         <div :class="classContent">
           <div class="numbers">
@@ -94,8 +95,8 @@ defineProps({
             </p>
             <h5 :class="`mb-0 font-weight-bolder ${value.color}`">
               {{
-                (value && typeof value === "string") ||
-                (value && typeof value === "number")
+                (value && typeof value === "string")
+                  || (value && typeof value === "number")
                   ? value
                   : value.text
               }}
@@ -113,7 +114,7 @@ defineProps({
               </span>
             </h5>
             <!--  eslint-disable-next-line vue/no-v-html -->
-            <p v-if="description" class="mt-2 mb-0" v-html="description"></p>
+            <p v-if="description" class="mt-2 mb-0" v-html="description" />
           </div>
         </div>
       </div>

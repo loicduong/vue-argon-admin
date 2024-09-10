@@ -6,14 +6,15 @@ defineProps({
   },
   placeholder: {
     type: String,
-    default: "",
+    default: '',
   },
   rows: {
     type: Number,
     default: 5,
   },
-});
+})
 </script>
+
 <template>
   <div class="form-group">
     <label :for="id">
@@ -24,6 +25,6 @@ defineProps({
       class="form-control"
       :rows="rows"
       :placeholder="placeholder"
-    ></textarea>
+    />
   </div>
 </template>

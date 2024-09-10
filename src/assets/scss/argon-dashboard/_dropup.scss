@@ -26,8 +26,8 @@
     }
 
     &:after {
-      font-family: "FontAwesome";
-      content: "\f0d7";
+      font-family: 'FontAwesome';
+      content: '\f0d7';
       position: absolute;
       z-index: -1;
       bottom: $dropup-animation-arrow-bottom-position;

@@ -2,18 +2,19 @@
 defineProps({
   name: {
     type: String,
-    default: "",
+    default: '',
   },
   id: {
     type: String,
-    default: "",
+    default: '',
   },
   checked: {
     type: Boolean,
     default: false,
   },
-});
+})
 </script>
+
 <template>
   <div class="form-check">
     <input
@@ -22,7 +23,7 @@ defineProps({
       type="checkbox"
       :name="name"
       :checked="checked"
-    />
+    >
     <label :for="id" class="custom-control-label" :class="$attrs.class">
       <slot />
     </label>
