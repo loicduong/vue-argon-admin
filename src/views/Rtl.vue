@@ -15,9 +15,8 @@ import TimelineItem from '@/examples/Cards/TimelineItem.vue'
 import TimelineList from '@/examples/Cards/TimelineList.vue'
 import ActiveUsersChart from '@/examples/Charts/ActiveUsersChart.vue'
 import GradientLineChart from '@/examples/Charts/GradientLineChart.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/store/modules/theme'
 
-import { onBeforeMount, onBeforeUnmount } from 'vue'
 import DeveloperCard from './components/DeveloperCard.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import RocketCard from './components/RocketCard.vue'
@@ -26,15 +25,15 @@ const store = useThemeStore()
 
 onBeforeMount(() => {
   store.isRTL = true
-  document.querySelector('html').setAttribute('lang', 'ar')
-  document.querySelector('html').setAttribute('dir', 'rtl')
-  document.querySelector('#app').classList.add('rtl')
+  document.querySelector('html')?.setAttribute('lang', 'ar')
+  document.querySelector('html')?.setAttribute('dir', 'rtl')
+  document.querySelector('#app')?.classList.add('rtl')
 })
 onBeforeUnmount(() => {
   store.isRTL = false
-  document.querySelector('html').removeAttribute('lang')
-  document.querySelector('html').removeAttribute('dir')
-  document.querySelector('#app').classList.remove('rtl')
+  document.querySelector('html')?.removeAttribute('lang')
+  document.querySelector('html')?.removeAttribute('dir')
+  document.querySelector('#app')?.classList.remove('rtl')
 })
 </script>
 

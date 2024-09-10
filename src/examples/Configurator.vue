@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { activateDarkMode, deactivateDarkMode } from '@/assets/js/dark-mode'
-import { useThemeStore } from '@/store'
-import { computed } from 'vue'
+import { useThemeStore } from '@/store/modules/theme'
 
 defineOptions({
   name: 'Configurator',
@@ -15,10 +14,10 @@ const sidebarType = computed(() => store.sidebarType)
 const toggleConfigurator = () => store.toggleConfigurator()
 
 const navbarFixed = () => store.navbarFixed()
-const setSidebarType = type => store.sidebarType = type
+const setSidebarType = (type: string) => store.sidebarType = type
 
 function sidebarColor(color = 'success') {
-  document.querySelector('#sidenav-main').setAttribute('data-color', color)
+  document.querySelector('#sidenav-main')?.setAttribute('data-color', color)
 }
 
 function darkMode() {

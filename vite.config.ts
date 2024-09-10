@@ -1,14 +1,19 @@
+import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
-import vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
+import { setupVitePlugins } from './build/plugins'
 
-export default defineConfig({
-  base: '/',
-  resolve: {
-    alias: {
-      '~': fileURLToPath(new URL('./', import.meta.url)),
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+export default defineConfig((configEnv) => {
+  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as Env.ImportMeta
+
+  return {
+    base: viteEnv.VITE_BASE_URL,
+    resolve: {
+      alias: {
+        '~': fileURLToPath(new URL('./', import.meta.url)),
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
     },
-  },
-  plugins: [vue()],
+    plugins: setupVitePlugins(viteEnv),
+  }
 })

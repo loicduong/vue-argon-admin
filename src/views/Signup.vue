@@ -5,7 +5,7 @@ import ArgonCheckbox from '@/components/ArgonCheckbox.vue'
 import ArgonInput from '@/components/ArgonInput.vue'
 import AppFooter from '@/examples/PageLayout/Footer.vue'
 import Navbar from '@/examples/PageLayout/Navbar.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/store/modules/theme'
 import { onBeforeMount, onBeforeUnmount } from 'vue'
 
 const body = document.getElementsByTagName('body')[0]

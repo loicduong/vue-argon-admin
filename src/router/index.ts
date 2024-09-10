@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import type { App } from 'vue'
 import Billing from '../views/Billing.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Profile from '../views/Profile.vue'
@@ -56,10 +57,14 @@ const routes = [
   },
 ]
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+export const router = createRouter({
+  history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes,
   linkActiveClass: 'active',
 })
 
-export default router
+/** Setup Vue Router */
+export async function setupRouter(app: App) {
+  app.use(router)
+  await router.isReady()
+}

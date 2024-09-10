@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import logoWhite from '@/assets/img/logo-ct.png'
 import logo from '@/assets/img/logo-ct-dark.png'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/store/modules/theme'
 import { computed } from 'vue'
 import SidenavList from './SidenavList.vue'
 

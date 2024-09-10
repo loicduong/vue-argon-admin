@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto'
-import { onMounted } from 'vue'
 
 defineOptions({
   name: 'ActiveUsersChart',
 })
 
 onMounted(() => {
-  const ctx = document.getElementById('chart-bars').getContext('2d')
+  const ctx = (document.getElementById('chart-bars') as HTMLCanvasElement).getContext('2d')
   new Chart(ctx, {
     type: 'bar',
     data: {

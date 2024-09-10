@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto'
-import { onMounted } from 'vue'
 
 defineOptions({
   name: 'ComsumptionByDayChart',
@@ -8,7 +7,7 @@ defineOptions({
 
 onMounted(() => {
   // Chart Consumption by day
-  const ctx = document.getElementById('chart-cons-week').getContext('2d')
+  const ctx = (document.getElementById('chart-cons-week') as HTMLCanvasElement).getContext('2d')
 
   new Chart(ctx, {
     type: 'bar',

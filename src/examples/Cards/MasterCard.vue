@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ArgonAvatar from '@/components/ArgonAvatar.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/store/modules/theme'
 import { computed } from 'vue'
 import img1 from '../../assets/img/logos/mastercard.png'
 

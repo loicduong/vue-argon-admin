@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto'
-import { onMounted } from 'vue'
 
 defineOptions({
   name: 'GradientLineChart',
@@ -27,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 onMounted(() => {
-  const gradientLineChart = document.getElementById(props.id)?.getContext('2d')
+  const gradientLineChart = (document.getElementById(props.id) as HTMLCanvasElement).getContext('2d')
 
   const gradientStroke1 = gradientLineChart?.createLinearGradient(0, 230, 0, 50)
 
@@ -42,10 +41,10 @@ onMounted(() => {
   gradientStroke2?.addColorStop(0, 'rgba(20,23,39,0)') // purple colors
 
   const chartStatus = Chart.getChart(props.id)
-  if (chartStatus != undefined) {
+  if (chartStatus !== undefined) {
     chartStatus.destroy()
   }
-  if (props.chart.datasets.length == 2) {
+  if (props.chart.datasets.length === 2) {
     new Chart(gradientLineChart, {
       type: 'line',
       data: {
@@ -54,11 +53,9 @@ onMounted(() => {
           {
             label: props.chart.datasets[0].label,
             tension: 0.4,
-            borderWidth: 0,
             pointRadius: 0,
             borderColor: '#4BB543 ',
             backgroundColor: gradientStroke1,
-
             borderWidth: 3,
             fill: true,
             data: props.chart.datasets[0].data,
@@ -67,10 +64,8 @@ onMounted(() => {
           {
             label: props.chart.datasets[1].label,
             tension: 0.4,
-            borderWidth: 0,
             pointRadius: 0,
             borderColor: '#3A416F',
-
             borderWidth: 3,
             backgroundColor: gradientStroke2,
             fill: true,
@@ -136,7 +131,7 @@ onMounted(() => {
       },
     })
   }
-  else if (props.chart.datasets.length == 1) {
+  else if (props.chart.datasets.length === 1) {
     new Chart(gradientLineChart, {
       type: 'line',
       data: {
@@ -145,11 +140,9 @@ onMounted(() => {
           {
             label: props.chart.datasets[0].label,
             tension: 0.4,
-            borderWidth: 0,
             pointRadius: 0,
             borderColor: '#4BB543 ',
             backgroundColor: gradientStroke1,
-
             borderWidth: 3,
             fill: true,
             data: props.chart.datasets[0].data,
@@ -221,7 +214,6 @@ onMounted(() => {
   <div class="card z-index-2">
     <div class="pb-0 card-header mb-0">
       <h6>{{ props.title }}</h6>
-      <!--  eslint-disable-next-line vue/no-v-html -->
       <p v-if="props.description" class="text-sm" v-html="props.description" />
     </div>
     <div class="p-3 card-body">

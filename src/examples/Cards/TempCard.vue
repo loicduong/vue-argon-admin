@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { CountUp } from 'countup.js'
-import { onMounted } from 'vue'
 
 defineOptions({
   name: 'TempCard',
@@ -17,84 +16,21 @@ interface Props {
 defineProps<Props>()
 
 onMounted(() => {
-  // Count To
-  if (document.getElementById('status1')) {
-    const countUp = new CountUp(
-      'status1',
-      document.getElementById('status1').getAttribute('countTo'),
-    )
-    if (!countUp.error) {
-      countUp.start()
+  ['status1', 'status2', 'status3', 'status4', 'status5', 'status6'].forEach((id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const countUp = new CountUp(
+        id,
+        Number(document.getElementById(id)?.getAttribute('countTo')),
+      )
+      if (!countUp.error) {
+        countUp.start()
+      }
+      else {
+        console.error(countUp.error)
+      }
     }
-    else {
-      console.error(countUp.error)
-    }
-  }
-
-  if (document.getElementById('status2')) {
-    const countUp = new CountUp(
-      'status2',
-      document.getElementById('status2').getAttribute('countTo'),
-    )
-    if (!countUp.error) {
-      countUp.start()
-    }
-    else {
-      console.error(countUp.error)
-    }
-  }
-
-  if (document.getElementById('status3')) {
-    const countUp = new CountUp(
-      'status3',
-      document.getElementById('status3').getAttribute('countTo'),
-    )
-    if (!countUp.error) {
-      countUp.start()
-    }
-    else {
-      console.error(countUp.error)
-    }
-  }
-
-  if (document.getElementById('status4')) {
-    const countUp = new CountUp(
-      'status4',
-      document.getElementById('status4').getAttribute('countTo'),
-    )
-    if (!countUp.error) {
-      countUp.start()
-    }
-    else {
-      console.error(countUp.error)
-    }
-  }
-
-  if (document.getElementById('status5')) {
-    const countUp = new CountUp(
-      'status5',
-      document.getElementById('status5').getAttribute('countTo'),
-    )
-    if (!countUp.error) {
-      countUp.start()
-    }
-    else {
-      console.error(countUp.error)
-    }
-  }
-
-  if (document.getElementById('status6')) {
-    const countUp = new CountUp(
-      'status6',
-      document.getElementById('status6').getAttribute('countTo'),
-    )
-    if (!countUp.error) {
-      countUp.start()
-    }
-    else {
-      console.error(countUp.error)
-    }
-  }
+  })
 })
 </script>
 

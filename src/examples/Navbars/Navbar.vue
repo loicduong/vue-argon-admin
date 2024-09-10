@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/store/modules/theme'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import Breadcrumbs from '../Breadcrumbs.vue'
@@ -41,7 +41,7 @@ function closeMenu() {
     data-scroll="true"
   >
     <div class="px-3 py-1 container-fluid">
-      <Breadcrumbs :current-page="currentRouteName" :current-directory="currentDirectory" />
+      <Breadcrumbs :current-page="currentRouteName as string" :current-directory="currentDirectory" />
 
       <div
         id="navbar"

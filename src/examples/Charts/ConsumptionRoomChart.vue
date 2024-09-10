@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto'
-import { onMounted } from 'vue'
 
 defineOptions({
   name: 'ConsumptionByRoomChart',
 })
 
 onMounted(() => {
-  // Chart Doughnut Consumption by room
-  const ctx1 = document.getElementById('chart-consumption').getContext('2d')
+  const ctx1 = (document.getElementById('chart-consumption') as HTMLCanvasElement).getContext('2d')
 
   const gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50)
 

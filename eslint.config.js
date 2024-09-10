@@ -14,6 +14,7 @@ export default antfu(
     rules: {
       '@typescript-eslint/consistent-type-definitions': 'off',
       'eslint-comments/no-unlimited-disable': 'off',
+      'no-new': 'off',
       'ts/no-unsafe-function-type': 'off',
       'unicorn/consistent-function-scoping': 'off',
       'unocss/order-attributify': 'off',

@@ -4,7 +4,7 @@ import setTooltip from '@/assets/js/tooltip.js'
 
 import ArgonButton from '@/components/ArgonButton.vue'
 import ArgonInput from '@/components/ArgonInput.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/store/modules/theme'
 import { onBeforeMount, onBeforeUnmount, onMounted } from 'vue'
 import ProfileCard from './components/ProfileCard.vue'
 

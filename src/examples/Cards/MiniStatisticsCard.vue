@@ -9,7 +9,7 @@ interface Props {
   description?: string
   value: string | number | { text: string | number, color: string }
   percentage?: string | { value?: string, color: string }
-  icon?: string | { component?: string, background: string, shape: string }
+  icon?: string | { component?: string, background: string, shape?: string }
   classContent?: string
 }
 

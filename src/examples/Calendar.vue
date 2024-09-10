@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { Calendar } from '@fullcalendar/core'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import { onBeforeUnmount, onMounted } from 'vue'
 
 defineOptions({
   name: 'Calendar',
 })
 
-let calendar
+const calendar = ref()
 
 interface Props {
   id?: string
@@ -35,63 +34,54 @@ const props = withDefaults(defineProps<Props>(), {
       end: '2020-11-18',
       className: 'bg-gradient-danger',
     },
-
     {
       title: 'Lunch meeting',
       start: '2020-11-21',
       end: '2020-11-22',
       className: 'bg-gradient-warning',
     },
-
     {
       title: 'All day conference',
       start: '2020-11-29',
       end: '2020-11-29',
       className: 'bg-gradient-success',
     },
-
     {
       title: 'Meeting with Mary',
       start: '2020-12-01',
       end: '2020-12-01',
       className: 'bg-gradient-info',
     },
-
     {
       title: 'Winter Hackaton',
       start: '2020-12-03',
       end: '2020-12-03',
       className: 'bg-gradient-danger',
     },
-
     {
       title: 'Digital event',
       start: '2020-12-07',
       end: '2020-12-09',
       className: 'bg-gradient-warning',
     },
-
     {
       title: 'Marketing event',
       start: '2020-12-10',
       end: '2020-12-10',
       className: 'bg-gradient-success',
     },
-
     {
       title: 'Dinner with Family',
       start: '2020-12-19',
       end: '2020-12-19',
       className: 'bg-gradient-danger',
     },
-
     {
       title: 'Black Friday',
       start: '2020-12-23',
       end: '2020-12-23',
       className: 'bg-gradient-info',
     },
-
     {
       title: 'Cyber Week',
       start: '2020-12-02',
@@ -104,7 +94,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 onMounted(() => {
-  calendar = new Calendar(document.getElementById(props.id), {
+  calendar.value = new Calendar(document.getElementById(props.id)!, {
     contentHeight: 'auto',
     plugins: [dayGridPlugin],
     initialView: props.initialView,
@@ -141,12 +131,12 @@ onMounted(() => {
     },
   })
 
-  calendar.render()
+  calendar.value.render()
 })
 
 onBeforeUnmount(() => {
-  if (calendar) {
-    calendar.destroy()
+  if (calendar.value) {
+    calendar.value.destroy()
   }
 })
 </script>

@@ -35,7 +35,6 @@ defineOptions({
               class="fas fa-pencil-alt ms-auto text-dark cursor-pointer"
               data-bs-toggle="tooltip"
               data-bs-placement="top"
-              title
               aria-hidden="true"
               data-bs-original-title="Edit Card"
               aria-label="Edit Card"
@@ -53,7 +52,6 @@ defineOptions({
               class="fas fa-pencil-alt ms-auto text-dark cursor-pointer"
               data-bs-toggle="tooltip"
               data-bs-placement="top"
-              title
               aria-hidden="true"
               data-bs-original-title="Edit Card"
               aria-label="Edit Card"

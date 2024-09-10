@@ -2,8 +2,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-import { onMounted } from 'vue'
-
 defineOptions({
   name: 'Globe',
 })
@@ -21,13 +19,13 @@ withDefaults(defineProps<Props>(), {
 onMounted(() => {
   (function () {
     const container = document.getElementById('globe')
-    const canvas = container.getElementsByTagName('canvas')[0]
+    const canvas = container?.getElementsByTagName('canvas')[0]
 
     const globeRadius = 100
     const globeWidth = 4098 / 2
     const globeHeight = 1968 / 2
 
-    function convertFlatCoordsToSphereCoords(x, y) {
+    function convertFlatCoordsToSphereCoords(x: number, y: number) {
       let latitude = ((x - globeWidth) / globeWidth) * -180
       let longitude = ((y - globeHeight) / globeHeight) * -90
       latitude = (latitude * Math.PI) / 180
@@ -41,8 +39,8 @@ onMounted(() => {
       }
     }
 
-    function makeMagic(points) {
-      const { width, height } = container.getBoundingClientRect()
+    function makeMagic(points: { x: number, y: number }[]) {
+      const { width, height } = container!.getBoundingClientRect()
 
       // 1. Setup scene
       const scene = new THREE.Scene()
@@ -56,7 +54,7 @@ onMounted(() => {
       renderer.setSize(width, height)
       // 4. Add points to canvas
       // - Single geometry to contain all points.
-      const mergedGeometry = new THREE.Geometry()
+      const mergedGeometry = new THREE.BufferGeometry()
       // - Material that the dots will be made of.
       const pointGeometry = new THREE.SphereGeometry(0.5, 1, 1)
       const pointMaterial = new THREE.MeshBasicMaterial({
@@ -67,8 +65,6 @@ onMounted(() => {
         const { x, y, z } = convertFlatCoordsToSphereCoords(
           point.x,
           point.y,
-          width,
-          height,
         )
 
         if (x && y && z) {
@@ -81,22 +77,22 @@ onMounted(() => {
       const globeShape = new THREE.Mesh(mergedGeometry, pointMaterial)
       scene.add(globeShape)
 
-      container.classList.add('peekaboo')
+      container?.classList.add('peekaboo')
 
       // Setup orbital controls
-      camera.orbitControls = new OrbitControls(camera, canvas)
-      camera.orbitControls.enableKeys = false
-      camera.orbitControls.enablePan = false
-      camera.orbitControls.enableZoom = false
-      camera.orbitControls.enableDamping = false
-      camera.orbitControls.enableRotate = true
-      camera.orbitControls.autoRotate = true
+      const controls = new OrbitControls(camera, canvas)
+      controls.keyPanSpeed = 0
+      controls.enablePan = false
+      controls.enableZoom = false
+      controls.enableDamping = false
+      controls.enableRotate = true
+      controls.autoRotate = true
       camera.position.z = -265
 
       function animate() {
         // orbitControls.autoRotate is enabled so orbitControls.update
         // must be called inside animation loop.
-        camera.orbitControls.update()
+        controls.update()
         requestAnimationFrame(animate)
         renderer.render(scene, camera)
       }
@@ -105,7 +101,7 @@ onMounted(() => {
 
     function hasWebGL() {
       const gl
-        = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
+        = canvas?.getContext('webgl') || canvas?.getContext('experimental-webgl')
       if (gl && gl instanceof WebGLRenderingContext) {
         return true
       }
@@ -117,12 +113,11 @@ onMounted(() => {
     function init() {
       if (hasWebGL()) {
         window
-        window
           .fetch(
             'https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-dashboard-pro/assets/js/points.json',
           )
           .then(response => response.json())
-          .then((data) => {
+          .then((data: { points: { x: number, y: number }[] }) => {
             makeMagic(data.points)
           })
       }
