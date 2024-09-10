@@ -25,11 +25,13 @@ defineProps({
     }),
   },
 });
+
+const backgroundImage = computed(() => new URL('@/assets/img/card-visa.jpg', import.meta.url).href);
 </script>
 <template>
   <div class="card bg-transparent shadow-xl">
     <div class="overflow-hidden position-relative border-radius-xl" :style="{
-      backgroundImage: 'url(' + require('@/assets/img/card-visa.jpg') + ')',
+      backgroundImage: `url(${backgroundImage})`,
     }">
       <span class="mask" :class="`bg-gradient-${card.background}`"></span>
       <div class="card-body position-relative z-index-1 p-3">

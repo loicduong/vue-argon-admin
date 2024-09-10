@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
+import { onMounted, onBeforeMount, onBeforeUnmount, computed } from "vue";
 import { useThemeStore } from "@/store";
-import Sidenav from "@/examples/Sidenav";
+import Sidenav from "@/examples/Sidenav/index.vue";
 import AppFooter from "@/examples/Footer.vue";
 import Navbar from "@/examples/Navbars/Navbar.vue";
 import CardCalendar from "./components/CardCalendar.vue";
@@ -45,6 +45,8 @@ onBeforeUnmount(() => {
   }
   store.isTransparent = "bg-transparent";
 });
+
+const backgroundImage = computed(() => new URL('@/assets/img/vr-bg.jpg', import.meta.url).href);
 </script>
 <template>
   <div class="mt-3">
@@ -52,7 +54,7 @@ onBeforeUnmount(() => {
       }`" />
   </div>
   <div class="mx-3 mt-4 border-radius-xl position-relative" :style="{
-    backgroundImage: 'url(' + require('@/assets/img/vr-bg.jpg') + ')',
+    backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
   }">
     <sidenav />

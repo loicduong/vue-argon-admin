@@ -1,7 +1,7 @@
 {
   "name": "vue-argon-admin",
+  "type": "module",
   "version": "0.0.0",
-  "private": true,
   "author": {
     "name": "Loic Duong",
     "email": "dploc96@gmail.com",
@@ -18,10 +18,11 @@
     "url": "git+https://github.com/creativetimofficial/vue-argon-dashboard.git"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "cross-env CI=false; cross-env PUBLIC_URL=/ vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "prettify": "prettier --write ."
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "prettify": "prettier --write .",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
@@ -39,10 +40,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "7.23.10",
     "@types/node": "22.5.4",
-    "@vue/cli-plugin-babel": "5.0.8",
-    "@vue/cli-plugin-eslint": "5.0.8",
-    "@vue/cli-plugin-router": "5.0.8",
-    "@vue/cli-service": "5.0.8",
+    "@vitejs/plugin-vue": "5.1.3",
     "@vue/compiler-sfc": "3.4.19",
     "@vue/eslint-config-prettier": "9.0.0",
     "cross-env": "7.0.3",
@@ -52,9 +50,12 @@
     "prettier": "3.2.5",
     "sass": "1.71.1",
     "sass-loader": "13.3.2",
-    "typescript": "5.6.2"
+    "typescript": "5.6.2",
+    "vite": "5.4.3",
+    "vue-tsc": "2.1.6"
   },
   "engines": {
-    "node": ">=8 <=21"
+    "node": ">=18.12.0",
+    "pnpm": ">=8.7.0"
   }
 }
