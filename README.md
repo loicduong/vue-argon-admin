@@ -38,14 +38,6 @@ Let us know your thoughts below. And good luck with development!
 
 ## Table of Contents
 
-- [vite-project](#vite-project)
-  - [Recommended IDE Setup](#recommended-ide-setup)
-  - [Type Support for `.vue` Imports in TS](#type-support-for-vue-imports-in-ts)
-  - [Customize configuration](#customize-configuration)
-  - [Project Setup](#project-setup)
-    - [Compile and Hot-Reload for Development](#compile-and-hot-reload-for-development)
-    - [Type-Check, Compile and Minify for Production](#type-check-compile-and-minify-for-production)
-    - [Lint with ESLint](#lint-with-eslint)
 - [Vue Argon Dashboard 2 ](#vue-argon-dashboard-2-) - [Special thanks](#special-thanks)
   - [Table of Contents](#table-of-contents)
   - [Versions](#versions)
