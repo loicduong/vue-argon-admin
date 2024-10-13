@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed } from 'vue'
 
-defineOptions({
-  name: 'CategoriesList',
-})
+const mainStore = useMainStore()
+const isRTL = computed(() => mainStore.isRTL)
 
 interface Props {
   title?: string
@@ -21,9 +20,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   title: 'Categories',
 })
-
-const store = useThemeStore()
-const isRTL = computed(() => store.isRTL)
 </script>
 
 <template>
@@ -54,6 +50,7 @@ const isRTL = computed(() => store.isRTL)
               <h6 class="mb-1 text-sm text-dark">
                 {{ label }}
               </h6>
+              <!-- eslint-disable-next-line vue/no-v-html -->
               <span class="text-xs" v-html="description" />
             </div>
           </div>

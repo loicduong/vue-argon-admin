@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonPaginationItem',
-})
-
 interface Props {
   label?: string
   active?: boolean
@@ -19,11 +15,9 @@ withDefaults(defineProps<Props>(), {
   next: false,
 })
 
-function getClasses(active?: Props['active'], disabled?: Props['disabled']) {
-  let activeValue, disabledValue
-
-  activeValue = active ? 'active' : null
-  disabledValue = disabled ? 'disabled' : null
+function getClasses(active?: boolean, disabled?: boolean) {
+  const activeValue = active ? 'active' : null
+  const disabledValue = disabled ? 'disabled' : null
 
   return `${activeValue} ${disabledValue}`
 }

@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto'
-
-defineOptions({
-  name: 'GradientLineChart',
-})
+import { onMounted } from 'vue'
 
 interface Props {
   id: string
@@ -11,10 +8,10 @@ interface Props {
   title?: string
   description?: string
   chart: {
-    labels: unknown[]
+    labels: any[]
     datasets: {
       label: string
-      data: unknown[]
+      data: any[]
     }[]
   }
 }
@@ -26,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 onMounted(() => {
-  const gradientLineChart = (document.getElementById(props.id) as HTMLCanvasElement).getContext('2d')
+  const gradientLineChart = (document.getElementById(props.id) as HTMLCanvasElement)?.getContext('2d')
 
   const gradientStroke1 = gradientLineChart?.createLinearGradient(0, 230, 0, 50)
 
@@ -45,7 +42,7 @@ onMounted(() => {
     chartStatus.destroy()
   }
   if (props.chart.datasets.length === 2) {
-    new Chart(gradientLineChart, {
+    new Chart(gradientLineChart!, {
       type: 'line',
       data: {
         labels: props.chart.labels,
@@ -59,7 +56,6 @@ onMounted(() => {
             borderWidth: 3,
             fill: true,
             data: props.chart.datasets[0].data,
-            maxBarThickness: 6,
           },
           {
             label: props.chart.datasets[1].label,
@@ -70,7 +66,6 @@ onMounted(() => {
             backgroundColor: gradientStroke2,
             fill: true,
             data: props.chart.datasets[1].data,
-            maxBarThickness: 6,
           },
         ],
       },
@@ -89,11 +84,9 @@ onMounted(() => {
         scales: {
           y: {
             grid: {
-              drawBorder: false,
               display: true,
               drawOnChartArea: true,
               drawTicks: false,
-              borderDash: [5, 5],
             },
             ticks: {
               display: true,
@@ -109,11 +102,9 @@ onMounted(() => {
           },
           x: {
             grid: {
-              drawBorder: false,
               display: false,
               drawOnChartArea: false,
               drawTicks: false,
-              borderDash: [5, 5],
             },
             ticks: {
               display: true,
@@ -132,7 +123,7 @@ onMounted(() => {
     })
   }
   else if (props.chart.datasets.length === 1) {
-    new Chart(gradientLineChart, {
+    new Chart(gradientLineChart!, {
       type: 'line',
       data: {
         labels: props.chart.labels,
@@ -146,7 +137,6 @@ onMounted(() => {
             borderWidth: 3,
             fill: true,
             data: props.chart.datasets[0].data,
-            maxBarThickness: 6,
           },
         ],
       },
@@ -165,11 +155,9 @@ onMounted(() => {
         scales: {
           y: {
             grid: {
-              drawBorder: false,
               display: true,
               drawOnChartArea: true,
               drawTicks: false,
-              borderDash: [5, 5],
             },
             ticks: {
               display: true,
@@ -185,11 +173,9 @@ onMounted(() => {
           },
           x: {
             grid: {
-              drawBorder: false,
               display: false,
               drawOnChartArea: false,
               drawTicks: false,
-              borderDash: [5, 5],
             },
             ticks: {
               display: true,
@@ -214,6 +200,7 @@ onMounted(() => {
   <div class="card z-index-2">
     <div class="pb-0 card-header mb-0">
       <h6>{{ props.title }}</h6>
+      <!--  eslint-disable-next-line vue/no-v-html -->
       <p v-if="props.description" class="text-sm" v-html="props.description" />
     </div>
     <div class="p-3 card-body">

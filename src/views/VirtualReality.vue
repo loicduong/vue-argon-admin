@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import setTooltip from '@/assets/js/tooltip.js'
+import setTooltip from '@/assets/js/tooltip'
 import AppFooter from '@/examples/Footer.vue'
 import Navbar from '@/examples/Navbars/Navbar.vue'
 import Sidenav from '@/examples/Sidenav/index.vue'
-import { useThemeStore } from '@/store/modules/theme'
-import { computed, onBeforeMount, onBeforeUnmount, onMounted } from 'vue'
+import { useMainStore } from '@/store/main'
+import { onBeforeMount, onBeforeUnmount, onMounted } from 'vue'
 import CardCalendar from './components/CardCalendar.vue'
 import CardEmail from './components/CardEmail.vue'
 import CardMessage from './components/CardMessage.vue'
@@ -13,40 +13,40 @@ import CardToDo from './components/CardToDo.vue'
 
 const body = document.getElementsByTagName('body')[0]
 
-const store = useThemeStore()
+const mainStore = useMainStore()
 
-const sidebarMinimize = () => store.sidebarMinimize()
-const toggleConfigurator = () => store.toggleConfigurator()
+const sidebarMinimize = () => mainStore.sidebarMinimize()
+const toggleConfigurator = () => mainStore.toggleConfigurator()
 
 onMounted(() => {
   setTooltip()
 })
 
 onBeforeMount(() => {
-  store.layout = 'vr'
-  store.showNavbar = false
-  store.showSidenav = false
-  store.showFooter = false
+  mainStore.layout = 'vr'
+  mainStore.showNavbar = false
+  mainStore.showSidenav = false
+  mainStore.showFooter = false
   body.classList.add('virtual-reality')
-  store.isTransparent = 'bg-white'
+  mainStore.isTransparent = 'bg-white'
 })
 onBeforeUnmount(() => {
-  store.layout = 'default'
-  store.showNavbar = true
-  store.showSidenav = true
-  store.showFooter = true
+  mainStore.layout = 'default'
+  mainStore.showNavbar = true
+  mainStore.showSidenav = true
+  mainStore.showFooter = true
   body.classList.remove('virtual-reality')
 
-  if (store.isPinned === false) {
+  if (mainStore.isPinned === false) {
     const sidenav_show = document.querySelector('.g-sidenav-show')
-    sidenav_show?.classList?.remove('g-sidenav-hidden')
-    sidenav_show?.classList?.add('g-sidenav-pinned')
-    store.isPinned = true
+    sidenav_show?.classList.remove('g-sidenav-hidden')
+    sidenav_show?.classList.add('g-sidenav-pinned')
+    mainStore.isPinned = true
   }
-  store.isTransparent = 'bg-transparent'
+  mainStore.isTransparent = 'bg-transparent'
 })
 
-const backgroundImage = computed(() => new URL('@/assets/img/vr-bg.jpg', import.meta.url).href)
+const vrBg = new URL('@/assets/img/vr-bg.jpg', import.meta.url).href
 </script>
 
 <template>
@@ -54,14 +54,14 @@ const backgroundImage = computed(() => new URL('@/assets/img/vr-bg.jpg', import.
     <Navbar
       :min-nav="sidebarMinimize"
       :toggle="toggleConfigurator"
-      :class="`${store.isNavFixed ? store.navbarFixed_class : ''} ${store.isNavFixed ? 'bg-white' : 'bg-success'
+      :class="`${mainStore.isNavFixed ? mainStore.navbarFixedClass : ''} ${mainStore.isNavFixed ? 'bg-white' : 'bg-success'
       }`"
     />
   </div>
   <div
     class="mx-3 mt-4 border-radius-xl position-relative"
     :style="{
-      backgroundImage: `url(${backgroundImage})`,
+      backgroundImage: `url(${vrBg})`,
       backgroundSize: 'cover',
     }"
   >

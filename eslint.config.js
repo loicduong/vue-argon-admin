@@ -4,7 +4,6 @@ export default antfu(
   {
     formatters: true,
     regexp: false,
-    unocss: false,
     vue: true,
   },
   {
@@ -14,6 +13,7 @@ export default antfu(
     rules: {
       '@typescript-eslint/consistent-type-definitions': 'off',
       'eslint-comments/no-unlimited-disable': 'off',
+      'no-irregular-whitespace': 'off',
       'no-new': 'off',
       'ts/no-unsafe-function-type': 'off',
       'unicorn/consistent-function-scoping': 'off',
@@ -45,16 +45,11 @@ export default antfu(
           },
         },
       ],
-      'vue/multi-word-component-names': [
-        'warn',
-        {
-          ignores: ['index', 'App', 'Register', '[id]', '[url]'],
-        },
-      ],
+      'vue/multi-word-component-names': 'off',
       'vue/next-tick-style': ['warn', 'promise'],
       'vue/no-duplicate-attr-inheritance': 'warn',
       'vue/no-required-prop-with-default': 'warn',
-      'vue/no-static-inline-styles': 'warn',
+      'vue/no-static-inline-styles': 'off',
       'vue/no-template-target-blank': 'error',
       'vue/no-this-in-before-route-enter': 'error',
       'vue/no-undef-properties': 'warn',

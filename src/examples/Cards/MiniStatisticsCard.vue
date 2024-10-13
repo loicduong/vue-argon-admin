@@ -1,24 +1,48 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'MiniStatisticsCard',
-})
-
 interface Props {
   rowReverse?: boolean
-  title: string | { text: string, color: string }
+  title?: {
+    text?: string
+    color?: string
+  } | string
   description?: string
-  value: string | number | { text: string | number, color: string }
-  percentage?: string | { value?: string, color: string }
-  icon?: string | { component?: string, background: string, shape?: string }
+  value?: {
+    text?: string | number
+    color?: string
+  } | string | number
+  percentage?: {
+    value?: string
+    color?: string
+  } | string
+  icon?: {
+    component?: string
+    background?: string
+    shape?: string
+  } | string
   classContent?: string
 }
 
 withDefaults(defineProps<Props>(), {
   rowReverse: false,
   description: '',
-  percentage: () => ({ color: 'success' }),
-  icon: () => ({ background: 'bg-white', shape: ' border-radius-md' }),
+  percentage: () => ({
+    color: 'success',
+    value: '',
+  }),
+  icon: () => ({
+    background: 'bg-white',
+    component: '',
+    shape: ' border-radius-md',
+  }),
   classContent: '',
+  title: () => ({
+    color: '',
+    text: '',
+  }),
+  value: () => ({
+    color: '',
+    text: '',
+  }),
 })
 </script>
 
@@ -35,22 +59,23 @@ withDefaults(defineProps<Props>(), {
             rowReverse ? 'me-2' : '',
           ]"
         >
-          <i class="text-lg opacity-10" :class="typeof icon === 'string' ? icon : icon.component" aria-hidden="true" />
+          <i
+            class="text-lg opacity-10"
+            :class="typeof icon === 'string' ? icon : icon.component"
+            aria-hidden="true"
+          />
         </div>
         <div :class="classContent">
           <div class="numbers">
-            <p
-              class="mb-0 text-sm text-uppercase font-weight-bold"
-              :class="typeof title === 'object' ? title.color : ''"
-            >
+            <p class="mb-0 text-sm text-uppercase font-weight-bold" :class="typeof title === 'object' && title.color">
               {{ typeof title === "string" ? title : title.text }}
             </p>
-            <h5 :class="`mb-0 font-weight-bolder ${typeof value === 'object' ? value.color : ''}`">
+            <h5 :class="`mb-0 font-weight-bolder ${typeof value === 'object' && value.color}`">
               {{
                 (value && typeof value === "string")
                   || (value && typeof value === "number")
                   ? value
-                  : (typeof value === "object" && value.text)
+                  : typeof value === 'object' && value.text
               }}
               <span v-if="percentage && typeof percentage === 'string'" class="text-sm font-weight-bolder">
                 {{ percentage }}
@@ -62,6 +87,7 @@ withDefaults(defineProps<Props>(), {
                 {{ percentage.value }}
               </span>
             </h5>
+            <!--  eslint-disable-next-line vue/no-v-html -->
             <p v-if="description" class="mt-2 mb-0" v-html="description" />
           </div>
         </div>

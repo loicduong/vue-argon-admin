@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed } from 'vue'
-
-defineOptions({
-  name: 'Breadcrumbs',
-})
 
 interface Props {
   currentPage?: string
@@ -16,9 +12,9 @@ withDefaults(defineProps<Props>(), {
   currentDirectory: '',
 })
 
-const store = useThemeStore()
-const isRTL = computed(() => store.isRTL)
-const isNavFixed = computed(() => store.isNavFixed)
+const mainStore = useMainStore()
+const isRTL = computed(() => mainStore.isRTL)
+const isNavFixed = computed(() => mainStore.isNavFixed)
 </script>
 
 <template>

@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonButton',
-})
-
 interface Props {
   color?: string
   size?: string
@@ -19,8 +15,8 @@ withDefaults(defineProps<Props>(), {
   active: false,
 })
 
-function getClasses(variant?: Props['variant'], color?: Props['color'], size?: Props['size'], fullWidth?: Props['fullWidth'], active?: Props['active']) {
-  let colorValue, sizeValue, fullWidthValue, activeValue
+function getClasses(variant?: string, color?: string, size?: string, fullWidth?: boolean, active?: boolean) {
+  let colorValue
 
   // Setting the button variant and color
   if (variant === 'gradient') {
@@ -33,11 +29,11 @@ function getClasses(variant?: Props['variant'], color?: Props['color'], size?: P
     colorValue = `btn-${color}`
   }
 
-  sizeValue = size ? `btn-${size}` : null
+  const sizeValue = size ? `btn-${size}` : null
 
-  fullWidthValue = fullWidth ? `w-100` : null
+  const fullWidthValue = fullWidth ? `w-100` : null
 
-  activeValue = active ? `active` : null
+  const activeValue = active ? `active` : null
 
   return `${colorValue} ${sizeValue} ${fullWidthValue} ${activeValue}`
 }

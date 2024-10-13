@@ -1,10 +1,9 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'DefaultInfoCard',
-})
-
 interface Props {
-  icon?: string | { component?: string, background: string }
+  icon?: string | {
+    component?: string
+    background?: string
+  }
   title: string
   description?: string
   value?: string | number
@@ -13,6 +12,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   icon: () => ({
     background: 'bg-gradient-success',
+    component: '',
   }),
   description: '',
   value: '',
@@ -22,9 +22,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="card">
     <div class="p-3 mx-4 text-center card-header d-flex justify-content-center">
-      <div
-        :class="`icon icon-shape icon-lg shadow text-center border-radius-lg ${typeof icon === 'object' ? icon.background : ''}`"
-      >
+      <div :class="`icon icon-shape icon-lg shadow text-center border-radius-lg ${typeof icon === 'object' ? icon.background : ''}`">
         <i class="opacity-10" :class="typeof icon === 'string' ? icon : icon.component" aria-hidden="true" />
       </div>
     </div>

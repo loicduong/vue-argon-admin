@@ -1,33 +1,31 @@
 <script setup lang="ts">
 import { activateDarkMode, deactivateDarkMode } from '@/assets/js/dark-mode'
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
+import { computed } from 'vue'
 
-defineOptions({
-  name: 'Configurator',
-})
+const mainStore = useMainStore()
+// state
+const isRTL = computed(() => mainStore.isRTL)
+const isNavFixed = computed(() => mainStore.isNavFixed)
+const sidebarType = computed(() => mainStore.sidebarType)
+const toggleConfigurator = () => mainStore.toggleConfigurator()
 
-const store = useThemeStore()
-
-const isRTL = computed(() => store.isRTL)
-const isNavFixed = computed(() => store.isNavFixed)
-const sidebarType = computed(() => store.sidebarType)
-const toggleConfigurator = () => store.toggleConfigurator()
-
-const navbarFixed = () => store.navbarFixed()
-const setSidebarType = (type: string) => store.sidebarType = type
+// mutations
+const navbarFixed = () => mainStore.navbarFixed()
+const setSidebarType = (type: string) => mainStore.setSidebarType(type)
 
 function sidebarColor(color = 'success') {
   document.querySelector('#sidenav-main')?.setAttribute('data-color', color)
 }
 
 function darkMode() {
-  if (store.darkMode) {
-    store.darkMode = false
+  if (mainStore.darkMode) {
+    mainStore.darkMode = false
     setSidebarType('bg-white')
     deactivateDarkMode()
   }
   else {
-    store.darkMode = true
+    mainStore.darkMode = true
     setSidebarType('bg-default')
     activateDarkMode()
   }
@@ -136,7 +134,12 @@ function darkMode() {
             Light / Dark
           </h6>
           <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" :checked="store.darkMode" @click="darkMode">
+            <input
+              class="form-check-input mt-1 ms-auto"
+              type="checkbox"
+              :checked="mainStore.darkMode"
+              @click="darkMode"
+            >
           </div>
         </div>
         <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/vue-argon-dashboard">Free
@@ -161,6 +164,7 @@ function darkMode() {
             href="https://twitter.com/intent/tweet?text=Check%20Vue%20Argon%20Dashboard%202%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%vuejs3&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%vue-argon-dashboard"
             class="mb-0 btn btn-dark me-2"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <i class="fab fa-twitter me-1" aria-hidden="true" /> Tweet
           </a>
@@ -168,6 +172,7 @@ function darkMode() {
             href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/vue-argon-dashboard"
             class="mb-0 btn btn-dark me-2"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <i class="fab fa-facebook-square me-1" aria-hidden="true" /> Share
           </a>

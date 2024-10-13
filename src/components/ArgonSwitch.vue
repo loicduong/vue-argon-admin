@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonSwitch',
-})
-
 interface Props {
   name: string
   id: string

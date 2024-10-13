@@ -1,3 +1,43 @@
+# vite-project
+
+This template should help get you started developing with Vue 3 in Vite.
+
+## Recommended IDE Setup
+
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+
+## Type Support for `.vue` Imports in TS
+
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+pnpm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+pnpm dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+pnpm build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+pnpm lint
+```
+
 # [Vue Argon Dashboard 2](http://demos.creative-tim.com/vue-argon-dashboard/?ref=readme-vad) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/vue-argon-dashboard&text=Check%20Vue%Argon%20Dashboard%20made%20by%20@CreativeTim%20#webdesign%20#dashboard%20#argondesign%20#vue%20https://www.creative-tim.com/product/vue-argon-dashboard)
 
 ![version](https://img.shields.io/badge/version-4.0.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/vue-argon-dashboard.svg)](https://github.com/creativetimofficial/vue-argon-dashboard/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/vue-argon-dashboard.svg)](https://github.com/creativetimofficial/vue-argon-dashboard/issues?q=is%3Aissue+is%3Aclosed)
@@ -38,8 +78,15 @@ Let us know your thoughts below. And good luck with development!
 
 ## Table of Contents
 
-- [Vue Argon Dashboard 2 ](#vue-argon-dashboard-2-)
-      - [Special thanks](#special-thanks)
+- [vite-project](#vite-project)
+  - [Recommended IDE Setup](#recommended-ide-setup)
+  - [Type Support for `.vue` Imports in TS](#type-support-for-vue-imports-in-ts)
+  - [Customize configuration](#customize-configuration)
+  - [Project Setup](#project-setup)
+    - [Compile and Hot-Reload for Development](#compile-and-hot-reload-for-development)
+    - [Type-Check, Compile and Minify for Production](#type-check-compile-and-minify-for-production)
+    - [Lint with ESLint](#lint-with-eslint)
+- [Vue Argon Dashboard 2 ](#vue-argon-dashboard-2-) - [Special thanks](#special-thanks)
   - [Table of Contents](#table-of-contents)
   - [Versions](#versions)
   - [Demo](#demo)
@@ -53,8 +100,7 @@ Let us know your thoughts below. And good luck with development!
   - [Reporting Issues](#reporting-issues)
   - [Technical Support or Questions](#technical-support-or-questions)
   - [Licensing](#licensing)
-  - [Useful Links](#useful-links)
-        - [Social Media](#social-media)
+  - [Useful Links](#useful-links) - [Social Media](#social-media)
 
 ## Versions
 

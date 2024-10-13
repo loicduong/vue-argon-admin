@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //
 // Vertical navbar + Sidenav
 //
@@ -8,6 +10,7 @@
     max-width: 100%;
     max-height: 2rem;
   }
+
   // Navbar navigaton
   .navbar-nav {
     // Navbar link
@@ -16,20 +19,23 @@
       padding-right: $navbar-padding-x;
       font-weight: $navbar-nav-link-font-weight;
       color: $font-color;
+
       // Icon
       > i {
         min-width: $navbar-icon-min-width;
         font-size: 0.9375rem;
         line-height: ($font-size-base * $line-height-base);
       }
+
       // Dropdown
       .dropdown-menu {
         border: none;
 
         .dropdown-menu {
-          margin-left: $dropdown-item-padding-x / 2;
+          margin-left: math.div($dropdown-item-padding-x, 2);
         }
       }
+
       .icon {
         padding: 10px;
       }
@@ -41,12 +47,14 @@
       }
     }
   }
+
   // Navbar navigation
   .navbar-nav .nav-link {
     display: flex;
     align-items: center;
     white-space: nowrap;
   }
+
   // Navbar heading
   .navbar-heading {
     padding-top: $nav-link-padding-y;
@@ -55,6 +63,7 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
+
   // Expanded navbar specific styles
   &.navbar-expand {
     @each $breakpoint, $dimension in $grid-breakpoints {
@@ -76,6 +85,7 @@
             overflow: auto;
             height: $navbar-vertical-inner;
           }
+
           // Container
           > [class*='container'] {
             flex-direction: column;
@@ -83,19 +93,23 @@
             min-height: 100%;
             padding-left: 0;
             padding-right: 0; // Target IE 10 & 11
+
             @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
               min-height: none;
               height: 100%;
             }
           }
+
           // Fixes the vertical navbar to the left
           &.fixed-start {
             left: 0;
           }
+
           // Fixed the vertical navbar to the right
           &.fixed-end {
             right: 0;
           }
+
           // Navbar navigation
           .navbar-nav .nav-link {
             padding-top: $navbar-vertical-nav-link-padding-y !important;
@@ -148,10 +162,11 @@
             padding-right: 1rem;
             border-radius: $border-radius-sm;
           }
+
           // Second level
           .navbar-nav .nav .nav-link {
-            padding-top: $navbar-vertical-nav-link-padding-y / 1.5;
-            padding-bottom: $navbar-vertical-nav-link-padding-y / 1.5;
+            padding-top: math.div($navbar-vertical-nav-link-padding-y, 1.5);
+            padding-bottom: math.div($navbar-vertical-nav-link-padding-y, 1.5);
             padding-left: 15px;
 
             > span.sidenav-normal {
@@ -183,12 +198,14 @@
     }
   }
 }
+
 // Sidenav + Main content transition
 
 .main-content,
 .sidenav {
   transition: $transition-base;
 }
+
 //
 // Sidenav
 //
@@ -200,6 +217,7 @@
   .navbar-heading {
     display: block;
   }
+
   @include media-breakpoint-up(xl) {
     &:hover {
       max-width: $navbar-vertical-open-width;
@@ -244,6 +262,7 @@
     }
   }
 }
+
 // Sidenav states
 
 .g-sidenav-show {
@@ -259,6 +278,7 @@
     }
   }
 }
+
 // Media fixes for iPhone 5 like resolutions
 @include media-breakpoint-down(xl) {
   .g-sidenav-show {
@@ -329,6 +349,7 @@
     margin-top: 7.1875rem !important;
   }
 }
+
 // Navbar Vertical Extend
 .navbar-vertical {
   .navbar-nav .nav-link[data-bs-toggle='collapse'] {
@@ -345,6 +366,7 @@
       color: rgba($dark-gradient-state, 0.5);
       @include transition($transition-base);
     }
+
     // Expanded
     &[aria-expanded='true'] {
       &:after {
@@ -379,6 +401,7 @@
                 color: $dark-gradient-state;
               }
             }
+
             // Third level
             .nav-item {
               .nav-link {
@@ -402,6 +425,7 @@
     }
   }
 }
+
 // Styles for minimized sidenav
 .navbar-vertical {
   .navbar-brand {
@@ -444,6 +468,7 @@
                 color: $white;
                 opacity: 0.8;
               }
+
               &.active {
                 .nav-link.active {
                   color: $white;
@@ -459,16 +484,19 @@
         }
       }
     }
+
     .sidenav-header {
       .navbar-brand {
         color: $white;
       }
     }
+
     .sidenav-footer {
       h6 {
         color: $white;
       }
     }
+
     hr {
       background-image: $hr-horizontal-bg-image-light !important;
     }
@@ -586,6 +614,7 @@
           height: 0;
         }
       }
+
       // Hover style on sidenav minimized
       &:hover {
         max-width: $navbar-vertical-open-width !important;

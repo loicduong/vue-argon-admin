@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonPagination',
-})
-
 interface Props {
   color?: string
   size?: string
@@ -13,11 +9,9 @@ withDefaults(defineProps<Props>(), {
   size: 'md',
 })
 
-function getClasses(color?: Props['color'], size?: Props['size']) {
-  let colorValue, sizeValue
-
-  colorValue = color ? `pagination-${color}` : null
-  sizeValue = size ? `pagination-${size}` : null
+function getClasses(color?: string, size?: string) {
+  const colorValue = color ? `pagination-${color}` : null
+  const sizeValue = size ? `pagination-${size}` : null
 
   return `${colorValue} ${sizeValue}`
 }

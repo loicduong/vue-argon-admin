@@ -1,29 +1,25 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import Breadcrumbs from '../Breadcrumbs.vue'
 
-defineOptions({
-  name: 'Navbar',
-})
-
 const showMenu = ref(false)
-const store = useThemeStore()
-const isRTL = computed(() => store.isRTL)
+const mainStore = useMainStore()
+const isRTL = computed(() => mainStore.isRTL)
 
 const route = useRoute()
 
 const currentRouteName = computed(() => {
-  return route.name
+  return route.name as string
 })
 const currentDirectory = computed(() => {
   const dir = route.path.split('/')[1]
   return dir.charAt(0).toUpperCase() + dir.slice(1)
 })
 
-const minimizeSidebar = () => store.sidebarMinimize()
-const toggleConfigurator = () => store.toggleConfigurator()
+const minimizeSidebar = () => mainStore.sidebarMinimize()
+const toggleConfigurator = () => mainStore.toggleConfigurator()
 
 function closeMenu() {
   setTimeout(() => {
@@ -34,14 +30,13 @@ function closeMenu() {
 
 <template>
   <nav
-    v-bind="$attrs"
     id="navbarBlur"
     class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
     :class="isRTL ? 'top-0 position-sticky z-index-sticky' : ''"
     data-scroll="true"
   >
     <div class="px-3 py-1 container-fluid">
-      <Breadcrumbs :current-page="currentRouteName as string" :current-directory="currentDirectory" />
+      <Breadcrumbs :current-page="currentRouteName" :current-directory="currentDirectory" />
 
       <div
         id="navbar"

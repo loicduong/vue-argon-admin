@@ -1,17 +1,11 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'Navbar',
-})
-
 interface Props {
-  btnBackground?: string
   isBlur?: string
   darkMode?: boolean
   isBtn?: string
 }
 
 withDefaults(defineProps<Props>(), {
-  btnBackground: '',
   isBlur: '',
   darkMode: false,
   isBtn: 'bg-gradient-light',

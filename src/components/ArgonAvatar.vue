@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonAvatar',
-})
-
 interface Props {
   image: string
   alt?: string
@@ -20,10 +16,9 @@ withDefaults(defineProps<Props>(), {
   circular: false,
 })
 
-const getSize = (size?: Props['size']) => (size ? `avatar-${size}` : null)
-
-function getClasses(shadow?: Props['shadow'], circular?: Props['circular'], borderRadius?: Props['borderRadius']) {
-  let shadowValue, circularValue, borderRadiusValue
+const getSize = (size?: string | null) => (size ? `avatar-${size}` : null)
+function getClasses(shadow?: string | null, circular?: boolean, borderRadius?: string | null) {
+  let shadowValue: string | null
 
   if (shadow) {
     shadowValue = shadow === 'regular' ? 'shadow' : `shadow-${shadow}`
@@ -32,9 +27,8 @@ function getClasses(shadow?: Props['shadow'], circular?: Props['circular'], bord
     shadowValue = null
   }
 
-  circularValue = circular ? 'rounded-circle' : null
-
-  borderRadiusValue = borderRadius ? `border-radius-${borderRadius}` : null
+  const circularValue = circular ? 'rounded-circle' : null
+  const borderRadiusValue = borderRadius ? `border-radius-${borderRadius}` : null
 
   return `${shadowValue} ${circularValue} ${borderRadiusValue}`
 }

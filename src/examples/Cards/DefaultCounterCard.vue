@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'DefaultCounterCard',
-})
-
 interface Props {
   count: number
   prefix?: string
@@ -17,7 +13,6 @@ withDefaults(defineProps<Props>(), {
   suffix: '',
   description: '',
   color: 'success',
-
 })
 </script>
 

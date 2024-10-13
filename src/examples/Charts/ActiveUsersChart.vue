@@ -1,20 +1,16 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto'
-
-defineOptions({
-  name: 'ActiveUsersChart',
-})
+import { onMounted } from 'vue'
 
 onMounted(() => {
   const ctx = (document.getElementById('chart-bars') as HTMLCanvasElement).getContext('2d')
-  new Chart(ctx, {
+  new Chart(ctx!, {
     type: 'bar',
     data: {
       labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [
         {
           label: 'Sales',
-          tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
           borderSkipped: false,
@@ -39,15 +35,11 @@ onMounted(() => {
       scales: {
         y: {
           grid: {
-            drawBorder: false,
             display: false,
             drawOnChartArea: false,
             drawTicks: false,
           },
           ticks: {
-            suggestedMin: 0,
-            suggestedMax: 500,
-            beginAtZero: true,
             padding: 15,
             font: {
               size: 14,
@@ -60,7 +52,6 @@ onMounted(() => {
         },
         x: {
           grid: {
-            drawBorder: false,
             display: false,
             drawOnChartArea: false,
             drawTicks: false,

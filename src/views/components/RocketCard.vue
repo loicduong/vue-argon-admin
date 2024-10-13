@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
-defineOptions({
-  name: 'RocketCard',
-})
-
-const backgroundImage = computed(() => new URL('@/assets/img/ivancik.jpg', import.meta.url).href)
+const ivancik = new URL('@/assets/img/ivancik.jpg', import.meta.url).href
 </script>
 
 <template>
@@ -13,7 +7,7 @@ const backgroundImage = computed(() => new URL('@/assets/img/ivancik.jpg', impor
     <div
       class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
       :style="{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${ivancik})`,
       }"
     >
       <span class="mask bg-gradient-dark" />

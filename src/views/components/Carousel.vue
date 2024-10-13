@@ -1,13 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
-defineOptions({
-  name: 'Carousel',
-})
-
-const backgroundImage1 = computed(() => new URL('@/assets/img/carousel-1.jpg', import.meta.url).href)
-const backgroundImage2 = computed(() => new URL('@/assets/img/carousel-2.jpg', import.meta.url).href)
-const backgroundImage3 = computed(() => new URL('@/assets/img/carousel-3.jpg', import.meta.url).href)
+const carousel1 = new URL('@/assets/img/carousel-1.jpg', import.meta.url).href
+const carousel2 = new URL('@/assets/img/carousel-2.jpg', import.meta.url).href
+const carousel3 = new URL('@/assets/img/carousel-3.jpg', import.meta.url).href
 </script>
 
 <template>
@@ -17,7 +11,7 @@ const backgroundImage3 = computed(() => new URL('@/assets/img/carousel-3.jpg', i
         <div
           class="carousel-item h-100 active"
           :style="{
-            backgroundImage: `url(${backgroundImage1})`,
+            backgroundImage: `url(${carousel1})`,
             backgroundSize: 'cover',
           }"
         >
@@ -37,7 +31,7 @@ const backgroundImage3 = computed(() => new URL('@/assets/img/carousel-3.jpg', i
         <div
           class="carousel-item h-100"
           :style="{
-            backgroundImage: `url(${backgroundImage2})`,
+            backgroundImage: `url(${carousel2})`,
             backgroundSize: 'cover',
           }"
         >
@@ -57,7 +51,7 @@ const backgroundImage3 = computed(() => new URL('@/assets/img/carousel-3.jpg', i
         <div
           class="carousel-item h-100"
           :style="{
-            backgroundImage: `url(${backgroundImage3})`,
+            backgroundImage: `url(${carousel3})`,
             backgroundSize: 'cover',
           }"
         >

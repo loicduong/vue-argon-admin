@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonTextarea',
-})
-
 interface Props {
   id: string
   placeholder?: string

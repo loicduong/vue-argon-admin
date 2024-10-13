@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import setNavPills from '@/assets/js/nav-pills.js'
-import setTooltip from '@/assets/js/tooltip.js'
+import setNavPills from '@/assets/js/nav-pills'
+import setTooltip from '@/assets/js/tooltip'
 
 import ArgonButton from '@/components/ArgonButton.vue'
 import ArgonInput from '@/components/ArgonInput.vue'
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { onBeforeMount, onBeforeUnmount, onMounted } from 'vue'
 import ProfileCard from './components/ProfileCard.vue'
 
 const body = document.getElementsByTagName('body')[0]
 
-const store = useThemeStore()
+const mainStore = useMainStore()
 
 onMounted(() => {
-  store.isAbsolute = true
+  mainStore.isAbsolute = true
   setNavPills()
   setTooltip()
 })
 onBeforeMount(() => {
-  store.imageLayout = 'profile-overview'
-  store.showNavbar = false
-  store.showFooter = true
-  store.hideConfigButton = true
+  mainStore.imageLayout = 'profile-overview'
+  mainStore.showNavbar = false
+  mainStore.showFooter = true
+  mainStore.hideConfigButton = true
   body.classList.add('profile-overview')
 })
 onBeforeUnmount(() => {
-  store.isAbsolute = false
-  store.imageLayout = 'default'
-  store.showNavbar = true
-  store.showFooter = true
-  store.hideConfigButton = false
+  mainStore.isAbsolute = false
+  mainStore.imageLayout = 'default'
+  mainStore.showNavbar = true
+  mainStore.showFooter = true
+  mainStore.hideConfigButton = false
   body.classList.remove('profile-overview')
 })
 </script>

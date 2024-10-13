@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'TimelineList',
-})
-
 interface Props {
   title?: string
   description?: string
@@ -22,6 +18,7 @@ withDefaults(defineProps<Props>(), {
       <h6 :class="dark ? 'text-white' : ''">
         {{ title }}
       </h6>
+      <!--  eslint-disable-next-line vue/no-v-html -->
       <p v-if="description" class="text-sm" v-html="description" />
     </div>
     <div class="p-3 card-body">

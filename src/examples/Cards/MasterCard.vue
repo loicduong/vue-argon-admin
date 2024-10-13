@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import ArgonAvatar from '@/components/ArgonAvatar.vue'
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed } from 'vue'
 import img1 from '../../assets/img/logos/mastercard.png'
 
-defineOptions({
-  name: 'MasterCard',
-})
-
 interface Props {
   card?: {
-    type?: Record<string, unknown>
     number: string
     holderName: string
     expiryDate: string
@@ -31,11 +26,9 @@ withDefaults(defineProps<Props>(), {
   }),
 })
 
-const store = useThemeStore()
-
-const isRTL = computed(() => store.isRTL)
-
-const backgroundImage = computed(() => new URL('@/assets/img/card-visa.jpg', import.meta.url).href)
+const mainStore = useMainStore()
+const isRTL = computed(() => mainStore.isRTL)
+const cardVisa = new URL('@/assets/img/card-visa.jpg', import.meta.url).href
 </script>
 
 <template>
@@ -43,7 +36,7 @@ const backgroundImage = computed(() => new URL('@/assets/img/card-visa.jpg', imp
     <div
       class="overflow-hidden position-relative border-radius-xl"
       :style="{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${cardVisa})`,
       }"
     >
       <span class="mask" :class="`bg-gradient-${card.background}`" />

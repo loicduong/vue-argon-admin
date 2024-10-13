@@ -1,9 +1,3 @@
-<script setup lang="ts">
-defineOptions({
-  name: 'AuthorsTable',
-})
-</script>
-
 <template>
   <div class="card">
     <div class="card-header pb-0">

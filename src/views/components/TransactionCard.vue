@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import ArgonButton from '@/components/ArgonButton.vue'
-
-defineOptions({
-  name: 'TransactionCard',
-})
 </script>
 
 <template>

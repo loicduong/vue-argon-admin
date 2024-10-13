@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonInput',
-})
-
 interface Props {
   size?: string
   success?: boolean
@@ -31,12 +27,14 @@ withDefaults(defineProps<Props>(), {
   isRequired: false,
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void
+}>()
 
-function getClasses(size?: Props['size'], success?: Props['success'], error?: Props['error']) {
-  let sizeValue, isValidValue
+function getClasses(size?: string, success?: boolean, error?: boolean) {
+  let isValidValue
 
-  sizeValue = size ? `form-control-${size}` : null
+  const sizeValue = size ? `form-control-${size}` : null
 
   if (error) {
     isValidValue = 'is-invalid'
@@ -50,8 +48,8 @@ function getClasses(size?: Props['size'], success?: Props['success'], error?: Pr
 
   return `${sizeValue} ${isValidValue}`
 }
-const getIcon = (icon?: Props['icon']) => (icon || null)
-const hasIcon = (icon?: Props['icon']) => (icon ? 'input-group' : null)
+const getIcon = (icon?: string) => (icon || null)
+const hasIcon = (icon?: string) => (icon ? 'input-group' : null)
 </script>
 
 <template>

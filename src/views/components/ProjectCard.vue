@@ -1,22 +1,18 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ProjectCard',
-})
-
 interface Props {
   title?: string
   description?: string
-  headings?: string[]
+  headings?: any[]
   rows?: {
-    logo: string
-    tool: string
-    teamMembers: string[]
-    price: string
-    progress: number
+    logo?: string
+    tool?: string
+    teamMembers?: any[]
+    price?: string
+    progress?: number
   }[]
   action?: {
-    route: string
-    label: string
+    route?: string
+    label?: string
   }[]
 }
 

@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import logoWhite from '@/assets/img/logo-ct.png'
 import logo from '@/assets/img/logo-ct-dark.png'
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed } from 'vue'
 import SidenavList from './SidenavList.vue'
 
-defineOptions({
-  name: 'Sidenav',
-})
-
-const store = useThemeStore()
-const isRTL = computed(() => store.isRTL)
-const layout = computed(() => store.layout)
-const sidebarType = computed(() => store.sidebarType)
-const darkMode = computed(() => store.darkMode)
+const mainStore = useMainStore()
+const isRTL = computed(() => mainStore.isRTL)
+const layout = computed(() => mainStore.layout)
+const sidebarType = computed(() => mainStore.sidebarType)
+const darkMode = computed(() => mainStore.darkMode)
 </script>
 
 <template>

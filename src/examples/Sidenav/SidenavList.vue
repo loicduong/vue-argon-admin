@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import SidenavCard from './SidenavCard.vue'
 import SidenavItem from './SidenavItem.vue'
 
-defineOptions({
-  name: 'SidenavList',
-})
-
-const store = useThemeStore()
-const isRTL = computed(() => store.isRTL)
+const mainStore = useMainStore()
+const isRTL = computed(() => mainStore.isRTL)
 
 function getRoute() {
   const route = useRoute()

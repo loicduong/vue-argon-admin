@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonCheckbox',
-})
-
 interface Props {
   name?: string
   id?: string

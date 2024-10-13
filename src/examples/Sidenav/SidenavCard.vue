@@ -1,29 +1,11 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed } from 'vue'
 
-defineOptions({
-  name: 'SidenavCard',
-})
+const mainStore = useMainStore()
 
-const store = useThemeStore()
-
-const isRTL = computed(() => store.isRTL)
-const layout = computed(() => store.layout)
-defineProps({
-  card: {
-    type: Object,
-    required: true,
-    title: String,
-    description: String,
-    links: {
-      type: Array,
-      label: String,
-      route: String,
-      color: String,
-    },
-  },
-})
+const isRTL = computed(() => mainStore.isRTL)
+const layout = computed(() => mainStore.layout)
 </script>
 
 <template>
@@ -52,6 +34,7 @@ defineProps({
       v-if="isRTL"
       href="https://www.creative-tim.com/learning-lab/vue/overview/argon-dashboard/"
       target="_blank"
+      rel="noopener noreferrer"
       class="mb-3 btn btn-dark btn-sm w-100"
     >
       توثيق
@@ -61,6 +44,7 @@ defineProps({
       v-else
       href="https://www.creative-tim.com/learning-lab/vue/overview/argon-dashboard/"
       target="_blank"
+      rel="noopener noreferrer"
       class="mb-3 btn btn-dark btn-sm w-100"
     >
       Documentation
@@ -70,6 +54,7 @@ defineProps({
       v-if="isRTL"
       href="https://www.creative-tim.com/product/vue-argon-dashboard-pro"
       target="_blank"
+      rel="noopener noreferrer"
       class="mb-3 btn btn-success btn-sm w-100"
     >
       التطور للاحترافية
@@ -79,6 +64,7 @@ defineProps({
       v-else
       href="https://www.creative-tim.com/product/vue-argon-dashboard-pro"
       target="_blank"
+      rel="noopener noreferrer"
       class="mb-3 btn btn-success btn-sm w-100"
     >
       Upgrade to pro

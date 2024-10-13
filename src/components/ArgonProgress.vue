@@ -10,7 +10,7 @@ withDefaults(defineProps<Props>(), {
   variant: 'fill',
 })
 
-function getClasses(color?: Props['color'], variant?: Props['variant']) {
+function getClasses(color?: string, variant?: string) {
   let colorValue
 
   if (variant === 'gradient') {

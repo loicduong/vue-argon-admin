@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-defineOptions({
-  name: 'Globe',
-})
+import { onMounted } from 'vue'
 
 interface Props {
   width?: string
@@ -45,7 +43,7 @@ onMounted(() => {
       // 1. Setup scene
       const scene = new THREE.Scene()
       // 2. Setup camera
-      const camera = new THREE.PerspectiveCamera(45, width / height)
+      const camera = new THREE.PerspectiveCamera(45, width / height) as THREE.PerspectiveCamera & { orbitControls: OrbitControls }
       // 3. Setup renderer
       const renderer = new THREE.WebGLRenderer({
         canvas,
@@ -69,7 +67,8 @@ onMounted(() => {
 
         if (x && y && z) {
           pointGeometry.translate(x, y, z)
-          mergedGeometry.merge(pointGeometry)
+
+          mergedGeometry.copy(pointGeometry).applyMatrix4(new THREE.Matrix4().makeTranslation(x, y, z))
           pointGeometry.translate(-x, -y, -z)
         }
       }
@@ -80,19 +79,18 @@ onMounted(() => {
       container?.classList.add('peekaboo')
 
       // Setup orbital controls
-      const controls = new OrbitControls(camera, canvas)
-      controls.keyPanSpeed = 0
-      controls.enablePan = false
-      controls.enableZoom = false
-      controls.enableDamping = false
-      controls.enableRotate = true
-      controls.autoRotate = true
+      camera.orbitControls = new OrbitControls(camera, canvas)
+      camera.orbitControls.enablePan = false
+      camera.orbitControls.enableZoom = false
+      camera.orbitControls.enableDamping = false
+      camera.orbitControls.enableRotate = true
+      camera.orbitControls.autoRotate = true
       camera.position.z = -265
 
       function animate() {
         // orbitControls.autoRotate is enabled so orbitControls.update
         // must be called inside animation loop.
-        controls.update()
+        camera.orbitControls.update()
         requestAnimationFrame(animate)
         renderer.render(scene, camera)
       }
@@ -117,7 +115,7 @@ onMounted(() => {
             'https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-dashboard-pro/assets/js/points.json',
           )
           .then(response => response.json())
-          .then((data: { points: { x: number, y: number }[] }) => {
+          .then((data) => {
             makeMagic(data.points)
           })
       }

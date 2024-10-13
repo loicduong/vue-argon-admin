@@ -1,22 +1,39 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-defineOptions({
-  name: 'ComplexStatisticsCard',
-})
-
 interface Props {
-  img?: string | { url?: string, overlay: string }
-  icon?: string | { component?: string, background: string }
-  count?: { number: number, label: string } | null
-  percentage?: string | { label: string, color: string }
+  img?: string | {
+    url?: string
+    overlay?: string
+  }
+  icon?: string | {
+    component?: string
+    background?: string
+  }
+  count?: {
+    number?: number
+    label?: string
+  } | null
+  percentage?: string | {
+    label?: string
+    color?: string
+  }
 }
 
 withDefaults(defineProps<Props>(), {
-  img: () => ({ overlay: 'dark' }),
-  icon: () => ({ background: 'bg-white' }),
-  count: null,
-  percentage: '',
+  img: () => ({
+    url: '',
+    overlay: 'dark',
+  }),
+  icon: () => ({
+    background: 'bg-white',
+    component: '',
+  }),
+  count: () => ({}),
+  percentage: () => ({
+    label: '',
+    color: '',
+  }),
 })
 
 const showMenu = ref(false)
@@ -78,7 +95,7 @@ const showMenu = ref(false)
           </div>
           <p
             class="text-sm text-end font-weight-bolder mt-auto mb-0"
-            :class="typeof percentage === 'object' && percentage?.color ? percentage?.color : 'text-white'"
+            :class="typeof percentage === 'object' && percentage.color ? percentage.color : 'text-white'"
           >
             {{
               typeof percentage === "string"

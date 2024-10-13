@@ -1,9 +1,3 @@
-<script setup lang="ts">
-defineOptions({
-  name: 'DeveloperCard',
-})
-</script>
-
 <template>
   <div class="card">
     <div class="card-body p-3">
@@ -20,7 +14,10 @@ defineOptions({
               من الألوان والبطاقات والطباعة إلى العناصر المعقدة ، ستجد الوثائق
               الكاملة.
             </p>
-            <a class="text-dark font-weight-bold ps-1 mb-0 icon-move-left mt-auto" href="javascript:;">
+            <a
+              class="text-dark font-weight-bold ps-1 mb-0 icon-move-left mt-auto"
+              href="javascript:;"
+            >
               اقرأ المستندات
               <i class="fas fa-arrow-left text-sm ms-1" aria-hidden="true" />
             </a>

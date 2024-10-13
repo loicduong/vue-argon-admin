@@ -1,9 +1,3 @@
-<script setup lang="ts">
-defineOptions({
-  name: 'CardMessage',
-})
-</script>
-
 <template>
   <div class="mt-4 card move-on-hover">
     <div class="card-body">

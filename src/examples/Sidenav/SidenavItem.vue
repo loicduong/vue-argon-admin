@@ -1,31 +1,23 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store/modules/theme'
+import { useMainStore } from '@/store/main'
 import { computed } from 'vue'
 
-defineOptions({
-  name: 'SidenavItem',
-})
+interface Props {
+  to: string
+  navText: string
+}
 
-const store = useThemeStore()
-const isRTL = computed(() => store.isRTL)
-const sidebarMinimize = () => store.sidebarMinimize()
+defineProps<Props>()
+
+const mainStore = useMainStore()
+const isRTL = computed(() => mainStore.isRTL)
+const sidebarMinimize = () => mainStore.sidebarMinimize()
 
 function minimizeSidebar() {
   if (window.innerWidth < 1200) {
     sidebarMinimize()
   }
 }
-
-defineProps({
-  to: {
-    type: String,
-    required: true,
-  },
-  navText: {
-    type: String,
-    required: true,
-  },
-})
 </script>
 
 <template>

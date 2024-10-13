@@ -2,10 +2,6 @@
 import setNavPills from '@/assets/js/nav-pills.js'
 import { onMounted } from 'vue'
 
-defineOptions({
-  name: 'NavPill',
-})
-
 onMounted(() => {
   setNavPills()
 })

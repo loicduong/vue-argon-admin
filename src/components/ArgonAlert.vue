@@ -1,8 +1,4 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'ArgonAlert',
-})
-
 interface Props {
   color?: string
   icon?: string
@@ -15,14 +11,16 @@ withDefaults(defineProps<Props>(), {
   dismissible: false,
 })
 
-function getClasses(color?: Props['color'], dismissible?: Props['dismissible']) {
-  let colorValue, dismissibleValue
+function getClasses(color: string, dismissible: boolean) {
+  let colorValue: string | null = null
+  let dismissibleValue: string | null = null
+
   colorValue = color ? `alert-${color}` : null
   dismissibleValue = dismissible ? 'alert-dismissible fade show' : null
   return `${colorValue} ${dismissibleValue}`
 }
 
-const getIcon = (icon?: Props['icon']) => (icon || null)
+const getIcon = (icon: string) => (icon || null)
 </script>
 
 <template>
